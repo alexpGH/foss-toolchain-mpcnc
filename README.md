@@ -1,4 +1,4 @@
-## Welcome to GitHub Pages
+## Welcome to a small set of free and open source tools for the mpcnc
 
 You can use the [editor on GitHub](https://github.com/alexpGH/foss-toolchain-mpcnc/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 

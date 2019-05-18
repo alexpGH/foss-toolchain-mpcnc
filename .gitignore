@@ -1,3 +1,9 @@
 
 # ignore the jekyll vendor dir
 vendor/
+.bundle
+**/*~
+Gemfile.lock
+**/#*
+**/.#*
+
