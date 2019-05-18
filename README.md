@@ -1,37 +1,47 @@
-## Welcome to a small set of free and open source tools for the mpcnc
+# A set of tutorials around foss<sup>*1</sup> tools for the mpcnc<sup>*2</sup>
+*1) free and open source<br>
+*2) [mostly printed cnc](https://www.v1engineering.com/specifications/)
 
-You can use the [editor on GitHub](https://github.com/alexpGH/foss-toolchain-mpcnc/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+The related discussion can be found in the [forum](https://www.v1engineering.com/forum/topic/foss-milling-toolchain-freecad-gbrl-on-ramps-discussion/) 
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+**WARNING**
+<br>
+I’m no expert in all of this. Try at your own risk!
 
-### Markdown
+*This is work in progress and will be extended bit by bit.*
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## Overview of tutorials
 
-```markdown
-Syntax highlighted code block
+| Title | Description      |
+| :------------- |:-------------|
+| [Freecad part 1](freecad_1.html) | From *zero* &rarr; gcode; Get FreeCAD, design a pocket with island, export gcode|
+| [Controller board, firmware](firmware_1.html)  | Controller board & firmware options |
+| [ZOOM: controller & firmware option B)  <span style="color:red">**NEW**</span>](zoom_1.html) | grbl on ramps for dual end stop based auto squaring |
+| [bCnC](bcnc_1.html) <span style="color:cyan">*not yet - comes next*</span> | Get, configure and get started with [bCNC](https://github.com/vlachoudis/bCNC) |
 
-# Header 1
-## Header 2
-### Header 3
 
-- Bulleted
-- List
+## Motivation
+I really like open source stuff, and I’m quite impressed by [Ryan](https://www.v1engineering.com/members/vicious1/) & folks. I have build my own mpcnc and want to contribute my part to the [V1 universe](https://www.v1engineering.com/).
 
-1. Numbered
-2. List
+I think the open design & open source approach is quite powerful; I dislike to depend on closed source software which does not natively run on my favorite operating system (linux).
 
-**Bold** and _Italic_ and `Code` text
+I think paying license fee for CAM software is OK, because providing such a software is much work.
+For me, I decided against it for several reasons.
 
-[Link](url) and ![Image](src)
-```
+Due to the complexity of the matter for newcomers, default tools are typically not replaced by standard users. Although there are a bunch of people operating the mpcnc & related machines with foss, and great solutions out there (see the tutorials below touching some of them), it took me several hours of reading, testing and playing around to combine the various bits of information to a consistent solution for me.  
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+*Therefore I decided to provide an easy to follow, step by step guide to a foss toolchain for the mpcnc, with the aim to be applicable using linux, windows and macos.
+I hope you can follow all of this; if not, feel free to ask in the [related thread](https://www.v1engineering.com/forum/topic/foss-milling-toolchain-freecad-gbrl-on-ramps-discussion/).*
 
-### Jekyll Themes
+A bold **thank you** goes out to Ryan and all the other people (e.g. from FreeCAD, debian, grbl, bCNC) out there, for sharing their expertise with us! 
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/alexpGH/foss-toolchain-mpcnc/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
 
-### Support or Contact
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+
+## The goal
+Get generated gbrl gcode ‘from zero’ using Freecad (get it, do the design, path generation, gcode export) for the shown geometry.
+
+It has the features: pocket with island and finish allowance which I think shows most of the necassary basics. We will later add more complex stuff (see the to do list).
+
+![](/assets/images/xScreenshot1.png "A pocket with island designed in FreeCAD")
+
