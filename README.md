@@ -43,5 +43,5 @@ Get generated gbrl gcode ‘from zero’ using Freecad (get it, do the design, p
 
 It has the features: pocket with island and finish allowance which I think shows most of the necassary basics. We will later add more complex stuff (see the to do list).
 
-![](/assets/images/xScreenshot1.png "A pocket with island designed in FreeCAD")
+![](./assets/images/xScreenshot1.png "A pocket with island designed in FreeCAD")
 

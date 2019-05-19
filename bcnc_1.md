@@ -26,14 +26,14 @@ On windows follow [these instructions](https://github.com/BurntSushi/nfldb/wiki/
 python -m bCNC
 ```
 - you should see<br><br>
-![](/assets/images/xbcnc1.png "bcnc 1st startup")
+![](./assets/images/xbcnc1.png "bcnc 1st startup")
 <br><br>
 Your machine is not connected yet. Now:
     - fill out *Port* (left, mid in the *Serial* section). This is just what you used to flash the firmware, in my case /dev/ttyUSB0
     - you can chekc *connect on startup if you like*
     - keep *Controller*: GRBL1 for now (we will check this next)
     - hit *open*. You should now have:<br><br>
-![](/assets/images/xbcnc2.png "bcnc 1st startup")
+![](./assets/images/xbcnc2.png "bcnc 1st startup")
 <br>    
         - your machine is connected (the usb plug symbol is shaded in green)
 	    - we are in alarm state. This is intended as far as I have understood. You need to clear this state explicitly. It prevents you from mistakenly damage your machine while not being aware of what you are doing.
@@ -41,7 +41,7 @@ Your machine is not connected yet. Now:
     
 ## Step 3 - check configuration basics
 - on the upper right click on *Terminal*
-![](/assets/images/xbcnc3.png "bcnc 1st startup")
+![](./assets/images/xbcnc3.png "bcnc 1st startup")
     - in the left column below *Alarm* there is now the *Command* input (right at the bottom).<br>
     - in the the mid you see the output of grbl (the result of your commands)
 - grbl starts with reporting the current version of firmware running on your controller - in my case *Grbl1.1i* - so no need to change the controller version field in the 'Serial' pane.
@@ -56,7 +56,7 @@ Please check the follwoing configuration carfully and adapt accordingly!
 - the greeting message also tells us how to unlock the machine:<br>
 *$X to unlock* - don't do it now!
 - on the command promt enter *$$*, hit enter:
-![](/assets/images/xbcnc4.png "bcnc 1st startup")
+![](./assets/images/xbcnc4.png "bcnc 1st startup")
 in the output pane, we now have all the settings stored on your controller in the EEPROM (persitent for power off/on)
 
 ## Step 4 - detailed configuration &#8594; $x=what_you_need
@@ -65,7 +65,7 @@ We are focusing here on the gantry setup having dual motors per axis x (x & xc) 
 Default grbl uses only 3 axis and bCNC in his machine settings interface supports only 3 axis &#8594;**ignore CAM>config**. <br>
 **Use the command line** or **CAM>controller** interface to configure your machine settings.
 
-This is the working configuration ([available on on my git hub](/assets/files/grblSettings_mpcncDualEndStop_bCNC.txt)) we will work through in the following.
+This is the working configuration ([available on on my git hub](./assets/files/grblSettings_mpcncDualEndStop_bCNC.txt)) we will work through in the following.
 <br>
 To copy a setting to your machine - just copy & paste to the command promt line by line.
 ```
@@ -74,7 +74,7 @@ although grbl stores the settings in the EEPROM and should apply them immediatel
 I sometimes needed to power off/on the controller for the (correctly reported
 settings - check by $$) have been effective! 
 ```
-![](/assets/images/xgrbl5.png "bcnc 1st startup")
+![](./assets/images/xgrbl5.png "bcnc 1st startup")
 We will go through the most important settings in the following. All settings not explicitly discussed can just be copied over. Have a read in [the grbl docu](https://github.com/gnea/grbl/wiki/Grbl-v1.1-Configuration) for detailed information.
 
 ### Step direction - $3 
@@ -97,7 +97,7 @@ end stop related alarm, e.g. [xyzxy], which means you misconfigured
 your pins &#8594;[recheck your understanding & config](zoom_1.html#endstopBackground) 
 - set the stepwidth to a small value (as indicated by the red mark)
 
-![](/assets/images/xbcnc5.png "bcnc control")
+![](./assets/images/xbcnc5.png "bcnc control")
 
 - set all axis to not inverted: issue $3=0
 - for all axis (one after the other):
@@ -181,7 +181,7 @@ Next:
 - trigger each end stop manually and see if it gets displayed as intended (I triggered the x end stop for the following screenshot - note the *Idle [x]* status, not triggering the end stop, the [x] should disappear again)
 
 
-![](/assets/images/xbcnc6.png "bcnc control")
+![](./assets/images/xbcnc6.png "bcnc control")
 
 - when all end stops act as intended:
     - hands on the emergency off
@@ -193,7 +193,7 @@ The lower left position in grbl as with professional cnc machines, is always neg
 -901/-570
 
 
-![](/assets/images/xbcnc7.png "bcnc control")
+![](./assets/images/xbcnc7.png "bcnc control")
 
 That's it!
 

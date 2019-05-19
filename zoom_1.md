@@ -12,7 +12,7 @@
 - doc/images has the wiring description<br>
 **Nothing to be changed** with your wiring; just in case you wonder or want to add some extra stuff)
 
-![](/assets/images/grbl-Mega-5X_MPCNC_Wiring.png "wiring - nothing to be changed fro default mpcnc dual end stop setup")
+![](./assets/images/grbl-Mega-5X_MPCNC_Wiring.png "wiring - nothing to be changed fro default mpcnc dual end stop setup")
 
 ## Step2 - configure the firmware
 
@@ -25,7 +25,7 @@ In the folder *grbl* open *config.h* &#8594; you should be able to configure eve
 <br>
 grbl-mega-5x allows you to use 5 (or even 6) axis. We have the axis definitions in line 59ff.:
 
-![](/assets/images/xgrbl2.png "config.h")
+![](./assets/images/xgrbl2.png "config.h")
 
 Per axis, there's a definition of the bit (we'll need this later on to be used with the masks) and a name, e.g. line 59/60 for 'X' .
 
@@ -64,15 +64,15 @@ As already stated above: *please use config.h to tweak things and do not mess ar
 **Copy the firmware to libraries**
 - start Arduino IDE
 - at File>Preferences have a look at *Sketchbook location* for me /home/alexp/Arduino
-<br><br>![](/assets/images/xarduino1.png "grbl folder in libraries")<br><br>
+<br><br>![](./assets/images/xarduino1.png "grbl folder in libraries")<br><br>
 - copy the complete folder grbl in there *below* the libraries folder<br><br>
-![](/assets/images/xarduino2.png "sketchbook location")<br>
+![](./assets/images/xarduino2.png "sketchbook location")<br>
 
 **Clear EEPROM**
 <br>
 This is necessary as grbl stores the settings in EEPROM and sometimes left over data might lead to problems.
 Flash the File>Examples>(all the way down in the menue)EEPROM>eeprom_clear
-<br><br>![](/assets/images/xarduino3.png "sketchbook location")<br><br>
+<br><br>![](./assets/images/xarduino3.png "sketchbook location")<br><br>
 This is done as usual as described by [Ryan: how to flash firmware](https://www.v1engineering.com/marlin-firmware/) (open the example, compile and upload)
 <br>**_FLashback_**: man, how easy is this - do you remeber the mess in ~year 2k when working with embedded devices from linux ([my tutorial back then in y2k](http://www.41hz.de/arm_linux.html))
 
