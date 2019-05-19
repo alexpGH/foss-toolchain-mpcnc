@@ -7,7 +7,7 @@
 - Either download the rar file from Pablo [here](https://www.v1engineering.com/forum/topic/grbl-running-on-ramps/#post-78315) or [this version from Johns gitHub](https://github.com/johnboiles/grbl-Mega-5X/tree/c640018f846bba11a4228c5758af2fb21367d01a).
 - Unpack / browse into the downloaded stuff
 - The contents should look like this (except the *grblSettings_mpcncDualEndStop_bCNC.txt* which is not in the Johns repo yet, but can be found [in this repo](/assets/files/grblSettings_mpcncDualEndStop_bCNC.txt) ):
-![](/assets/images/xgrbl.png "contents of the downloaded version of grbl-m-5x")
+![](./assets/images/xgrbl.png "contents of the downloaded version of grbl-m-5x")
 
 - doc/images has the wiring description<br>
 **Nothing to be changed** with your wiring; just in case you wonder or want to add some extra stuff)
