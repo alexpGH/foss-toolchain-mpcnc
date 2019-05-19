@@ -21,7 +21,7 @@
 In the folder *grbl* open *config.h* &#8594; you should be able to configure everything in here. *Do not mess around in e.g. limits.c as sometimes proposed as you will be loosing the possibility to easily follow main branch development.*
 
 
-**Very basics**
+**Very basics**<a name="veryBasics"></a> 
 <br>
 grbl-mega-5x allows you to use 5 (or even 6) axis. We have the axis definitions in line 59ff.:
 
@@ -31,7 +31,7 @@ Per axis, there's a definition of the bit (we'll need this later on to be used w
 
 For our mpcnc gantry setup, we have 5 axis - originally named *x, y, z, a, b* in grbl-mx5. These have been renamed to *x, y, z, x (cloned x, bit 4) , y (cloned y, bit 5)* - I will refer to the latter two as xc and yc.
 
-**End stop configuration - backbround**
+**End stop configuration - background**<a name="endstopBackground"></a> 
 <br>
 Go to line 261.
 

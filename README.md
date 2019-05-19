@@ -17,7 +17,7 @@ I’m no expert in all of this. Try at your own risk!
 | [Freecad part 1](freecad_1.html) | From *zero* &rarr; gcode; Get FreeCAD, design a pocket with island, export gcode|
 | [Controller board, firmware](firmware_1.html)  | Controller board & firmware options |
 | [ZOOM: controller & firmware option B)  <span style="color:red">**NEW**</span>](zoom_1.html) | grbl on ramps for dual end stop based auto squaring |
-| [bCnC](bcnc_1.html) <span style="color:cyan">*not yet - comes next*</span> | Get, configure and get started with [bCNC](https://github.com/vlachoudis/bCNC) |
+| [bCnC](bcnc_1.html) <span style="color:red">**NEW**</span> | Get, configure and get started with [bCNC](https://github.com/vlachoudis/bCNC) |
 
 
 ## Motivation
