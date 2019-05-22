@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <title>ZOOM grbl+RAMPS+auto squaring - foss-toolchain-mpcnc</title>
+  
+
+  <link rel="shortcut icon" href="../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "ZOOM grbl+RAMPS+auto squaring";
+    var mkdocs_page_input_path = "zoom_1.md";
+    var mkdocs_page_url = "/zoom_1/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> foss-toolchain-mpcnc</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">Home</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../freecad_1/">Freecad part 1</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../firmware_1/">Controller board, firmware</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">ZOOM grbl+RAMPS+auto squaring</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#spotlight-on">Spotlight on</a></li>
+                
+                    <li><a class="toctree-l4" href="#step1-get-the-firmware">Step1 – get the firmware</a></li>
+                
+                    <li><a class="toctree-l4" href="#step2-configure-the-firmware">Step2 - configure the firmware</a></li>
+                
+                    <li><a class="toctree-l4" href="#step3-flash-the-firmware">Step3 – flash the firmware</a></li>
+                
+            
+            </ul>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../bcnc_1/">bCNC</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../mill_1/">Milling part 1</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../ext_1/">Freecad - ramp in, finsish pass, holding tags</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">foss-toolchain-mpcnc</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>ZOOM grbl+RAMPS+auto squaring</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="spotlight-on">Spotlight on</h1>
+<p>Controller &amp; firmware option B):<br>grbl on Ramps – dual-end-stop, auto-squaring <br><strong><em>detailed walk through</em></strong></p>
+<h2 id="step1-get-the-firmware">Step1 – get the firmware</h2>
+<ul>
+<li>Either download the rar file from Pablo <a href="https://www.v1engineering.com/forum/topic/grbl-running-on-ramps/#post-78315">here</a> or <a href="https://github.com/johnboiles/grbl-Mega-5X/tree/c640018f846bba11a4228c5758af2fb21367d01a">this version from Johns gitHub</a>.</li>
+<li>Unpack / browse into the downloaded stuff</li>
+<li>
+<p>The contents should look like this (except the <em>grblSettings_mpcncDualEndStop_bCNC.txt</em> which is not in the Johns repo yet, but can be found <a href="../assets/files/grblSettings_mpcncDualEndStop_bCNC.txt">in this repo</a> ):
+<img alt="" src="../assets/images/xgrbl.png" title="contents of the downloaded version of grbl-m-5x" /></p>
+</li>
+<li>
+<p>doc/images has the wiring description<br>
+<strong>Nothing to be changed</strong> with your wiring; just in case you wonder or want to add some extra stuff)</p>
+</li>
+</ul>
+<p><img alt="" src="../assets/images/grbl-Mega-5X_MPCNC_Wiring.png" title="wiring - nothing to be changed fro default mpcnc dual end stop setup" /></p>
+<h2 id="step2-configure-the-firmware">Step2 - configure the firmware</h2>
+<p><strong>grbl/config.h</strong>
+<br>
+In the folder <em>grbl</em> open <em>config.h</em> &#8594; you should be able to configure everything in here. <em>Do not mess around in e.g. limits.c as sometimes proposed as you will be loosing the possibility to easily follow main branch development.</em></p>
+<p><strong>Very basics</strong><a name="veryBasics"></a> 
+<br>
+grbl-mega-5x allows you to use 5 (or even 6) axis. We have the axis definitions in line 59ff.:</p>
+<p><img alt="" src="../assets/images/xgrbl2.png" title="config.h" /></p>
+<p>Per axis, there's a definition of the bit (we'll need this later on to be used with the masks) and a name, e.g. line 59/60 for 'X' .</p>
+<p>For our mpcnc gantry setup, we have 5 axis - originally named <em>x, y, z, a, b</em> in grbl-mx5. These have been renamed to <em>x, y, z, x (cloned x, bit 4) , y (cloned y, bit 5)</em> - I will refer to the latter two as xc and yc.</p>
+<p><strong>End stop configuration - background</strong><a name="endstopBackground"></a> 
+<br>
+Go to line 261.</p>
+<p>End stops in grbl defaults to normally open (NO). I think the reason is that you don't need to jumper the pins of the unused ports tied to gnd.</p>
+<p>The mpcnc default for end stops however is (and I think this is sensible, <a href="https://www.v1engineering.com/auto-square-dual-endstops/">see Ryans arguments</a>) normally closed (NC). This means using grbl as is, you'll get all end stops firing an alarm when <em>NOT</em> triggered.</p>
+<p><strong>End stop configuration - $5 not working as intended &#8623;</strong>
+<br>
+We normally would use grbl's configuration command  $5=1, which inverts ALL limit pins and could be adapted in the frontend, ess e.g. <a href="../bcnc_1.html">bCNC</a> settings.
+<br>
+Unfortunately this does <em>NOT</em> work (I tried it and alarms I could not get rid of).</p>
+<p><strong>End stop configuration - solution: invert individual pins</strong>
+<br>
+Fortunately, there exists (in line 264) #define INVERT_MIN_LIMIT_PIN_MASK, which allows us to invert the necessary pins <em>individually</em>:</p>
+<p>We'll be using our knowledge about the AXIS_n definition we had learned about previously and set (<em>Note: this is only necessary if you use your endstops in NC; for NO leave it commented out!</em>)</p>
+<pre><code>#define INVERT_MIN_LIMIT_PIN_MASK ((1&lt;&lt;AXIS_1) | (1&lt;&lt;AXIS_2) | (1&lt;&lt;AXIS_4) | (1&lt;&lt;AXIS_5))
+</code></pre>
+
+<p>This, by the way, also allows you to leave the unused pins (e.g. ZMIN, ZMAX in my case) open.
+Unfamiliar with bitmasks? Have a <a href="https://codeforces.com/blog/entry/18169">read</a>.</p>
+<p>If you are curious how it's applied, have a read in <em>limits.c</em> line 192ff limits_get_state().<br>
+As already stated above: <em>please use config.h to tweak things and do not mess around in .c files whenever possible.</em></p>
+<h2 id="step3-flash-the-firmware">Step3 – flash the firmware</h2>
+<p><strong>Copy the firmware to libraries</strong>
+- start Arduino IDE
+- at File&gt;Preferences have a look at <em>Sketchbook location</em> for me /home/alexp/Arduino
+<br><br><img alt="" src="../assets/images/xarduino1.png" title="grbl folder in libraries" /><br><br>
+- copy the complete folder grbl in there <em>below</em> the libraries folder<br><br>
+<img alt="" src="../assets/images/xarduino2.png" title="sketchbook location" /><br></p>
+<p><strong>Clear EEPROM</strong>
+<br>
+This is necessary as grbl stores the settings in EEPROM and sometimes left over data might lead to problems.
+Flash the File&gt;Examples&gt;(all the way down in the menue)EEPROM&gt;eeprom_clear
+<br><br><img alt="" src="../assets/images/xarduino3.png" title="sketchbook location" /><br><br>
+This is done as usual as described by <a href="https://www.v1engineering.com/marlin-firmware/">Ryan: how to flash firmware</a> (open the example, compile and upload)
+<br><strong><em>FLashback</em></strong>: man, how easy is this - do you remeber the mess in ~year 2k when working with embedded devices from linux (<a href="http://www.41hz.de/arm_linux.html">my tutorial back then in y2k</a>)</p>
+<p><strong>Flash grbl</strong>
+- in Arduion IDE: File&gt;open&gt; [whereYouHaveIt]/librarries/grbl/Examples/grblUpload.ino
+- compile
+- upload</p>
+<p>Thats it.
+After power of/on for the controller board, you should now have a mpcnc with all motors active.
+Go on to the <a href="../bcnc_1">bCNC</a> tutorial.</p>
+<p><br>
+Feel free to dicuss your questions in the <a href="https://www.v1engineering.com/forum/topic/foss-milling-toolchain-freecad-gbrl-on-ramps-discussion/">related discussion thread</a> </p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../bcnc_1/" class="btn btn-neutral float-right" title="bCNC">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../firmware_1/" class="btn btn-neutral" title="Controller board, firmware"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../firmware_1/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../bcnc_1/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

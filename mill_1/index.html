@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <title>Milling part 1 - foss-toolchain-mpcnc</title>
+  
+
+  <link rel="shortcut icon" href="../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Milling part 1";
+    var mkdocs_page_input_path = "mill_1.md";
+    var mkdocs_page_url = "/mill_1/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> foss-toolchain-mpcnc</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">Home</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../freecad_1/">Freecad part 1</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../firmware_1/">Controller board, firmware</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../zoom_1/">ZOOM grbl+RAMPS+auto squaring</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../bcnc_1/">bCNC</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Milling part 1</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#import-the-gcode">Import the gcode</a></li>
+                
+                    <li><a class="toctree-l4" href="#position-your-machine">Position your machine:</a></li>
+                
+                    <li><a class="toctree-l4" href="#possible-pitfall-why-did-i-use-the-wrong-z-position">Possible pitfall - why did I use the wrong z position?</a></li>
+                
+                    <li><a class="toctree-l4" href="#machine-at-work">Machine at work</a></li>
+                
+                    <li><a class="toctree-l4" href="#open-points">Open points</a></li>
+                
+            
+            </ul>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../ext_1/">Freecad - ramp in, finsish pass, holding tags</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">foss-toolchain-mpcnc</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Milling part 1</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="import-the-gcode">Import the gcode</h1>
+<ul>
+<li>File&gt;Open the gcode exported in tutorial 1 in bCNC</li>
+<li>In the control tab, you can select the desired view (e.g. x-y and y-z) as shown in the following pictures</li>
+</ul>
+<p><img alt="" src="../assets/images/xmill2.png" title=" " /></p>
+<p>The red circle / triagle indicates the position of the machine relative to the workspace position (WPos).</p>
+<p>Note that, different from estlcam 2D default, the origin of the path is below the part (as can be seen in the y-z view). Have a look in the gcode to see that we work from positive coordinates down:
+- clearance plane at z=+25
+- workpiece top z=+20 (freecad's start depth)
+- working down to z=+15 (freecad's final depth)</p>
+<pre><code>Attentive observes will realize in the images and video, that I accidently
+used z=+25 (which is the clearence height) instead of z=+20mm, the actual start
+height for my milling operation. The follwoing description describes the correct setting.
+</code></pre>
+
+<p>Have a look at the depth settings of the job in FreeCAD, especially <em>Clearence height</em>, <em>Start Depth</em> and <em>Final Depth</em> to crosscheck the correct settings. </p>
+<p><img alt="" src="../assets/images/xmill4.png" title=" " /></p>
+<h2 id="position-your-machine">Position your machine:</h2>
+<ul>
+<li>Move your machine and place it relative to the workpiece where you want to have your x/y zero.</li>
+<li>Hit xy=0 in the control window<br> you should now have the red circle in x-y view right on the origin of the path:
+<img alt="" src="../assets/images/xmill1.png" title=" " />
+<br><br><img alt="" src="../assets/images/xmill3.png" title=" " /></li>
+<li>Position the milling cutter right on top of the workpiece. This is the <em>Start Depth</em> - in our case z=+20mm </li>
+<li>Use g92 z 20 to set the machine position accordingly (and not +25 as I did).</li>
+<li>Move up in Z, power on the spindle</li>
+<li>Hit <strong>Start</strong> in the control pane.</li>
+</ul>
+<p>The nice thing about grbl is that you can interrupt any command and the machine will (mostly) react instantly - even when e.g. making a long move. Just hit <em>Pause</em> or <em>Stop</em>. This is different from Marlin, where you only can pause or stop <em>after</em> the execution of the current command.</p>
+<p>Use the feed slider to slow down or speed up the milling procedure. I applied a speed-up as we used the MDF settings for the milling operation but are milling XPS.</p>
+<h2 id="possible-pitfall-why-did-i-use-the-wrong-z-position">Possible pitfall - why did I use the wrong z position?</h2>
+<p>Have a look at the y-z view (the first image). I wrongly interpreted the topmost plane of the path as start depth, which is <em>wrong</em>. The path is actually up to clearence plane (z=+25), over to the start position (in x-y) for plunging, fast down to to <em>start depth</em>.
+So be carefule in interpretation of what you see.</p>
+<h2 id="machine-at-work">Machine at work</h2>
+<p><a href="https://www.youtube.com/watch?v=C4NCIReDiNI" title="Milling part 1"><img alt="Milling part 1" src="http://img.youtube.com/vi/C4NCIReDiNI/0.jpg" /></a></p>
+<h2 id="open-points">Open points</h2>
+<ul>
+<li>Add some holding tags</li>
+<li>Ramp or hlical plunge</li>
+<li>Step down in smaller amounts</li>
+</ul>
+<p><br>
+Feel free to dicuss your questions in the <a href="https://www.v1engineering.com/forum/topic/foss-milling-toolchain-freecad-gbrl-on-ramps-discussion/">related discussion thread</a></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../ext_1/" class="btn btn-neutral float-right" title="Freecad - ramp in, finsish pass, holding tags">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../bcnc_1/" class="btn btn-neutral" title="bCNC"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../bcnc_1/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../ext_1/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

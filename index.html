@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <title>foss-toolchain-mpcnc</title>
+  
+
+  <link rel="shortcut icon" href="./img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="./css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="./css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="./css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "None";
+    var mkdocs_page_input_path = "index.md";
+    var mkdocs_page_url = "/";
+  </script>
+  
+  <script src="./js/jquery-2.1.1.min.js"></script>
+  <script src="./js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="./js/highlight.pack.js"></script>
+  <script src="./js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="." class="icon icon-home"> foss-toolchain-mpcnc</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 current">
+        <a class="current" href=".">Home</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#a-set-of-tutorials-around-foss1-tools-for-the-mpcnc2">A set of tutorials around foss1 tools for the mpcnc2</a></li>
+                
+                    <li><a class="toctree-l4" href="#overview-of-tutorials">Overview of tutorials</a></li>
+                
+                    <li><a class="toctree-l4" href="#motivation">Motivation</a></li>
+                
+                    <li><a class="toctree-l4" href="#the-goal">The goal</a></li>
+                
+            
+            </ul>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="freecad_1/">Freecad part 1</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="firmware_1/">Controller board, firmware</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="zoom_1/">ZOOM grbl+RAMPS+auto squaring</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="bcnc_1/">bCNC</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="mill_1/">Milling part 1</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="ext_1/">Freecad - ramp in, finsish pass, holding tags</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href=".">foss-toolchain-mpcnc</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Home</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="a-set-of-tutorials-around-foss1-tools-for-the-mpcnc2">A set of tutorials around foss<sup>1</sup> tools for the mpcnc<sup>2</sup></h1>
+<p>1) free and open source<br>
+2) <a href="https://www.v1engineering.com/specifications/">mostly printed cnc</a></p>
+<p>The related discussion can be found in the <a href="https://www.v1engineering.com/forum/topic/foss-milling-toolchain-freecad-gbrl-on-ramps-discussion/">forum</a> </p>
+<p><strong>WARNING</strong>
+<br>
+I’m no expert in all of this. Try at your own risk!</p>
+<p><em>This is work in progress and will be extended bit by bit.</em></p>
+<h2 id="overview-of-tutorials">Overview of tutorials</h2>
+<table>
+<thead>
+<tr>
+<th align="left">Nr.</th>
+<th align="left">Title</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">1</td>
+<td align="left"><a href="./freecad_1">Freecad part 1</a></td>
+<td align="left">From <em>zero</em> &rarr; gcode; Get FreeCAD, design a pocket with island, export gcode</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left"><a href="./firmware">Controller board, firmware</a></td>
+<td align="left">Controller board &amp; firmware options</td>
+</tr>
+<tr>
+<td align="left">3</td>
+<td align="left"><a href="./zoom_1">ZOOM: controller &amp; firmware option B) </a></td>
+<td align="left">grbl on ramps for dual end stop based auto squaring</td>
+</tr>
+<tr>
+<td align="left">4</td>
+<td align="left"><a href="./bcnc_1">bCnC</a></td>
+<td align="left">Get, configure and get started with <a href="https://github.com/vlachoudis/bCNC">bCNC</a></td>
+</tr>
+<tr>
+<td align="left">5</td>
+<td align="left"><a href="./mill_1">Milling part 1</a> <span style="color:red"><strong>NEW</strong></span></td>
+<td align="left">Milling the part from tutorial 1</td>
+</tr>
+<tr>
+<td align="left">6</td>
+<td align="left"><a href="./ext_1">Freecad part 1+</a> <span style="color:red"><strong>NEW</strong></span></td>
+<td align="left">Configuring to sensible settings, adding finish pass and holding tags</td>
+</tr>
+</tbody>
+</table>
+<h2 id="motivation">Motivation</h2>
+<p>I really like open source stuff, and I’m quite impressed by <a href="https://www.v1engineering.com/members/vicious1/">Ryan</a> &amp; folks. I have build my own mpcnc and want to contribute my part to the <a href="https://www.v1engineering.com/">V1 universe</a>.</p>
+<p>I think the open design &amp; open source approach is quite powerful; I dislike to depend on closed source software which does not natively run on my favorite operating system (linux).</p>
+<p>I think paying license fee for CAM software is OK, because providing such a software is much work.
+For me, I decided against it for several reasons.</p>
+<p>Due to the complexity of the matter for newcomers, default tools are typically not replaced by standard users. Although there are a bunch of people operating the mpcnc &amp; related machines with foss, and great solutions out there (see the tutorials below touching some of them), it took me several hours of reading, testing and playing around to combine the various bits of information to a consistent solution for me.  </p>
+<p><em>Therefore I decided to provide an easy to follow, step by step guide to a foss toolchain for the mpcnc, with the aim to be applicable using linux, windows and macos.
+I hope you can follow all of this; if not, feel free to ask in the <a href="https://www.v1engineering.com/forum/topic/foss-milling-toolchain-freecad-gbrl-on-ramps-discussion/">related thread</a>.</em></p>
+<p><span style="color:red">A bold <strong>thank you</strong> goes out to Ryan and all the other people (e.g. from FreeCAD, debian, grbl, bCNC) out there, for sharing their expertise with us!</span> </p>
+<h2 id="the-goal">The goal</h2>
+<p>Get generated gbrl gcode ‘from zero’ using Freecad (get it, do the design, path generation, gcode export) for the shown geometry.</p>
+<p>It has the features: pocket with island and finish allowance which I think shows most of the necassary basics. We will later add more complex stuff (see the to do list).</p>
+<p><img alt="" src="./assets/images/xScreenshot1.png" title="A pocket with island designed in FreeCAD" /></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="freecad_1/" class="btn btn-neutral float-right" title="Freecad part 1">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+      
+        <span style="margin-left: 15px"><a href="freecad_1/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 0.15.3
+Build Date UTC : 2019-05-22 20:35:02
+-->

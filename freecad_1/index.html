@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <title>Freecad part 1 - foss-toolchain-mpcnc</title>
+  
+
+  <link rel="shortcut icon" href="../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Freecad part 1";
+    var mkdocs_page_input_path = "freecad_1.md";
+    var mkdocs_page_url = "/freecad_1/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> foss-toolchain-mpcnc</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">Home</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Freecad part 1</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#foreword">Foreword</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#0-getting-freecad">0. Getting Freecad</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#1-getting-started-prepare-for-body-creation">1. Getting started: prepare for body creation</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#2-sketching-a-square-using-constraints-extrude-to-body">2.  Sketching a square, using constraints, extrude to body</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#3-adapting-the-geometry">3. Adapting the geometry</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#4-making-a-pocket">4. Making a pocket</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#5-adding-an-island">5. Adding an island</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#6-configure-the-path-workbench-create-the-pocketing-operation">6. Configure the path workbench, create the pocketing operation</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#7-visualize-and-correct-the-finishing-allowance">7. Visualize and correct the finishing allowance</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#8-export-gcode">8. Export gcode</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#open-points">Open points</a></li>
+                
+            
+            </ul>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../firmware_1/">Controller board, firmware</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../zoom_1/">ZOOM grbl+RAMPS+auto squaring</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../bcnc_1/">bCNC</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../mill_1/">Milling part 1</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../ext_1/">Freecad - ramp in, finsish pass, holding tags</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">foss-toolchain-mpcnc</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Freecad part 1</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="foreword">Foreword</h1>
+<p>Note: I use the blender interface for freecad (as I’m using blender regularly). Just right-click in the main window and select navigation-style&gt; blender (shown in the 2nd video).</p>
+<table>
+<thead>
+<tr>
+<th align="left">Functionality</th>
+<th align="left">Shortcut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">3D rotation</td>
+<td align="left">middle mouse botton + move the mouse</td>
+</tr>
+<tr>
+<td align="left">Move the view</td>
+<td align="left">shift + middel mouse button + move the mouse</td>
+</tr>
+<tr>
+<td align="left">Scale</td>
+<td align="left">mouse wheel or ctrl + middle mouse button + move the mouse</td>
+</tr>
+</tbody>
+</table>
+<h1 id="0-getting-freecad">0. Getting Freecad</h1>
+<p>Freecad provides appImages / binaries for Win / Mac / Linux. Just download and execute it. We will base this tutorial on the current stable release 0.18</p>
+<p><a href="https://www.youtube.com/watch?v=aXOwi4yDWuY"><img alt="Video – 0" src="http://img.youtube.com/vi/aXOwi4yDWuY/0.jpg" /></a></p>
+<h1 id="1-getting-started-prepare-for-body-creation">1. Getting started: prepare for body creation</h1>
+<p>We will open part design and create a sketch (which is a 2D drawing, allowing for constraints etc.) which will then be the basis for the 3D body</p>
+<p><a href="https://www.youtube.com/watch?v=uvMJVKm25mM"><img alt="Video -1" src="http://img.youtube.com/vi/uvMJVKm25mM/0.jpg" /></a></p>
+<h1 id="2-sketching-a-square-using-constraints-extrude-to-body">2.  Sketching a square, using constraints, extrude to body</h1>
+<p><a href="https://www.youtube.com/watch?v=NsnNnIFMbkQ"><img alt="Video -2" src="http://img.youtube.com/vi/NsnNnIFMbkQ/0.jpg" /></a></p>
+<h1 id="3-adapting-the-geometry">3. Adapting the geometry</h1>
+<p>How to use the underlying sketch (the constraints therein) to adapt the body geometry. This illustrates a basic design feature I like in freecad: all the steps build on oneanother (its like filters / adaptors applied in sequence). You can adapt almost all of them later on an the result will be adapted.</p>
+<p><a href="https://www.youtube.com/watch?v=oMFNh4hp3A8"><img alt="Video -3" src="http://img.youtube.com/vi/oMFNh4hp3A8/0.jpg" /></a></p>
+<h1 id="4-making-a-pocket">4. Making a pocket</h1>
+<p>You can easily match a sketch on a face of a 3d body, do some 2d design and use it as the basis of 3D body modification.</p>
+<p><a href="https://www.youtube.com/watch?v=FBp4xR3D_J4"><img alt="Video – 4" src="http://img.youtube.com/vi/FBp4xR3D_J4/0.jpg" /></a></p>
+<h1 id="5-adding-an-island">5. Adding an island</h1>
+<p><a href="https://www.youtube.com/watch?v=SoJ363wfyG8"><img alt="Video – 5" src="http://img.youtube.com/vi/SoJ363wfyG8/0.jpg" /></a></p>
+<h1 id="6-configure-the-path-workbench-create-the-pocketing-operation">6. Configure the path workbench, create the pocketing operation</h1>
+<p><a href="https://www.youtube.com/watch?v=1RDEcL7GOIQ"><img alt="Video -6" src="http://img.youtube.com/vi/1RDEcL7GOIQ/0.jpg" /></a></p>
+<h1 id="7-visualize-and-correct-the-finishing-allowance">7. Visualize and correct the finishing allowance</h1>
+<p>In the last video we generated the pocketing operation; checking the visualization we recognize that we had used the wrong sign for the finish allowance and correct it here</p>
+<p><a href="https://www.youtube.com/watch?v=3qmyA0SOTy8"><img alt="Video – 7" src="http://img.youtube.com/vi/3qmyA0SOTy8/0.jpg" /></a></p>
+<h1 id="8-export-gcode">8. Export gcode</h1>
+<p><a href="https://www.youtube.com/watch?v=Hlzd1YXwUFM"><img alt="Video – 8" src="http://img.youtube.com/vi/Hlzd1YXwUFM/0.jpg" /></a></p>
+<h1 id="open-points">Open points</h1>
+<ul>
+<li>check if we could have holding tabs generated: thanks to @edwardvmills: holding tabs are called ‘tags’ and are available as a ‘Dressup’ on an operation. tutorial tbd.</li>
+<li>we use 5mm in z. add a short video to show how to use a plunge angle and smaller milling depth per pass</li>
+<li>3d milling</li>
+</ul>
+<p><br>
+Feel free to dicuss your questions in the <a href="https://www.v1engineering.com/forum/topic/foss-milling-toolchain-freecad-gbrl-on-ramps-discussion/">related discussion thread</a> </p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../firmware_1/" class="btn btn-neutral float-right" title="Controller board, firmware">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../firmware_1/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

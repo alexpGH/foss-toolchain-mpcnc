@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <title>bCNC - foss-toolchain-mpcnc</title>
+  
+
+  <link rel="shortcut icon" href="../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "bCNC";
+    var mkdocs_page_input_path = "bcnc_1.md";
+    var mkdocs_page_url = "/bcnc_1/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> foss-toolchain-mpcnc</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">Home</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../freecad_1/">Freecad part 1</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../firmware_1/">Controller board, firmware</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../zoom_1/">ZOOM grbl+RAMPS+auto squaring</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">bCNC</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#bcnc-control-your-machine">bCNC: control your machine</a></li>
+                
+                    <li><a class="toctree-l4" href="#step-1-prepare">Step 1 - prepare</a></li>
+                
+                    <li><a class="toctree-l4" href="#step-2-connect-your-machine-to-bcnc">Step 2 - connect your machine to bCNC</a></li>
+                
+                    <li><a class="toctree-l4" href="#step-3-check-configuration-basics">Step 3 - check configuration basics</a></li>
+                
+                    <li><a class="toctree-l4" href="#step-4-detailed-configuration-xwhat_you_need">Step 4 - detailed configuration &#8594; $x=what_you_need</a></li>
+                
+            
+            </ul>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../mill_1/">Milling part 1</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../ext_1/">Freecad - ramp in, finsish pass, holding tags</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">foss-toolchain-mpcnc</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>bCNC</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="bcnc-control-your-machine">bCNC: control your machine</h1>
+<p><a href="https://github.com/vlachoudis/bCNC">bCnc</a> - as the authors claim:
+<br>
+<em>GRBL CNC command sender, autoleveler, g-code editor, digitizer, CAM and <strong>swiss army knife</strong> for all your CNC needs.</em><br>
+This is not exaggeration -  and the bets is: due to being written in python, you can use it under every operating system supporting python!</p>
+<h2 id="step-1-prepare">Step 1 - prepare</h2>
+<ul>
+<li>install python on your system later connected to your controller (via usb)</li>
+<li>install the python packages <em>python-tk</em>, <em>python-pip</em></li>
+<li>install bCNC using pip from your command line</li>
+</ul>
+<pre><code># on linux systems
+apt-get install python python-tk python-pip
+pip install bcnc
+</code></pre>
+
+<p>On windows follow <a href="https://github.com/BurntSushi/nfldb/wiki/Python-&amp;-pip-Windows-installation">these instructions</a>.</p>
+<h2 id="step-2-connect-your-machine-to-bcnc">Step 2 - connect your machine to bCNC</h2>
+<ul>
+<li>power on your controller, connect via usb</li>
+<li>on the command line</li>
+</ul>
+<pre><code>python -m bCNC
+</code></pre>
+
+<ul>
+<li>you should see<br><br>
+<img alt="" src="../assets/images/xbcnc1.png" title="bcnc 1st startup" />
+<br><br>
+Your machine is not connected yet. Now:<ul>
+<li>fill out <em>Port</em> (left, mid in the <em>Serial</em> section). This is just what you used to flash the firmware, in my case /dev/ttyUSB0</li>
+<li>you can chekc <em>connect on startup if you like</em></li>
+<li>keep <em>Controller</em>: GRBL1 for now (we will check this next)</li>
+<li>hit <em>open</em>. You should now have:<br><br>
+<img alt="" src="../assets/images/xbcnc2.png" title="bcnc 1st startup" />
+<br>    <ul>
+<li>your machine is connected (the usb plug symbol is shaded in green)</li>
+<li>we are in alarm state. This is intended as far as I have understood. You need to clear this state explicitly. It prevents you from mistakenly damage your machine while not being aware of what you are doing.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="step-3-check-configuration-basics">Step 3 - check configuration basics</h2>
+<ul>
+<li>on the upper right click on <em>Terminal</em>
+<img alt="" src="../assets/images/xbcnc3.png" title="bcnc 1st startup" /><ul>
+<li>in the left column below <em>Alarm</em> there is now the <em>Command</em> input (right at the bottom).<br></li>
+<li>in the the mid you see the output of grbl (the result of your commands)</li>
+</ul>
+</li>
+<li>grbl starts with reporting the current version of firmware running on your controller - in my case <em>Grbl1.1i</em> - so no need to change the controller version field in the 'Serial' pane.</li>
+</ul>
+<pre><code>ONLY if you are running on **an older version** e.g. grbl 0.9x:
+        - hit File on the topmost menue
+        - re-click the usb adapter symbol to diconnect
+        - select a matching controller version
+        - reconnect
+Please check the follwoing configuration carfully and adapt accordingly!
+</code></pre>
+
+<ul>
+<li>the greeting message also tells us how to unlock the machine:<br>
+<em>$X to unlock</em> - don't do it now!</li>
+<li>on the command promt enter <em>$$</em>, hit enter:
+<img alt="" src="../assets/images/xbcnc4.png" title="bcnc 1st startup" />
+in the output pane, we now have all the settings stored on your controller in the EEPROM (persitent for power off/on)</li>
+</ul>
+<h2 id="step-4-detailed-configuration-xwhat_you_need">Step 4 - detailed configuration &#8594; $x=what_you_need</h2>
+<h3 id="preamble">Preamble</h3>
+<p>We are focusing here on the gantry setup having dual motors per axis x (x &amp; xc) and y (y &amp; yc) - <a href="../zoom_1#veryBasics">don't remember? check again here</a>.<br>
+Default grbl uses only 3 axis and bCNC in his machine settings interface supports only 3 axis &#8594;<strong>ignore CAM&gt;config</strong>. <br>
+<strong>Use the command line</strong> or <strong>CAM&gt;controller</strong> interface to configure your machine settings.</p>
+<p>This is the working configuration (<a href="../assets/files/grblSettings_mpcncDualEndStop_bCNC.txt">available on on my git hub</a>) we will work through in the following.
+<br>
+To copy a setting to your machine - just copy &amp; paste to the command promt line by line.</p>
+<pre><code>WARNING:
+although grbl stores the settings in the EEPROM and should apply them immediately,
+I sometimes needed to power off/on the controller for the (correctly reported
+settings - check by $$) have been effective! 
+</code></pre>
+
+<p><img alt="" src="../assets/images/xgrbl5.png" title="bcnc 1st startup" />
+We will go through the most important settings in the following. All settings not explicitly discussed can just be copied over. Have a read in <a href="https://github.com/gnea/grbl/wiki/Grbl-v1.1-Configuration">the grbl docu</a> for detailed information.</p>
+<h3 id="step-direction-3">Step direction - $3</h3>
+<p>$3=val where val encodes which axis to be inverted. See the following table how to calculate val.<br>
+I have the default mpcnc wiring.<br>
+Surprisingly, I ended up (4th row) with a quite different setting from what would be expected (3rd row).</p>
+<p>|:-------------|:-------------:-------------:-------------:-------------
+|<strong>value contribution</strong>|2⁴=16|2³=8|2²=4|2¹=2|2⁰=1|
+|<strong>axis</strong>|yc|xc|z|y|x|
+|<strong>what we would expect</strong>=24|1|1|0|0|0|
+|<strong>what I endded up with</strong>=21|1|0|1|0|1|</p>
+<p>So how can we safely determine that?:
+- on the to menue, select <em>Control</em>
+- use $$ to check that you have $5=0; if not issue $5=0
+- in the command prompt enter $X (clears the alarm and should unlock the machine&#8594;Idle)<br>
+If you can't achieve the Idle state, you most probably have an
+end stop related alarm, e.g. [xyzxy], which means you misconfigured
+your pins &#8594;<a href="../zoom_1#endstopBackground">recheck your understanding &amp; config</a> 
+- set the stepwidth to a small value (as indicated by the red mark)</p>
+<p><img alt="" src="../assets/images/xbcnc5.png" title="bcnc control" /></p>
+<ul>
+<li>set all axis to not inverted: issue $3=0</li>
+<li>for all axis (one after the other):<ul>
+<li>make a small step</li>
+<li>note which part of the axis moves opposite to what you want</li>
+<li>place a 1 in the related column of the table shown above, add up and set $3=newSum until the axis moves as you expect</li>
+</ul>
+</li>
+<li>when done, your machine should move as you expect (regarding the directions)  </li>
+</ul>
+<h3 id="working-area-130ff">Working area - $130ff</h3>
+<p>My mpcnc's working area is 911x571x125(x,y,z)mm, so I use these settings:</p>
+<pre><code>$130=911.000 (x max travel, mm)
+$131=571.000 (y max travel, mm)
+$132=125.000 (z max travel, mm)
+$133=911.000 (xcloned max travel, mm)
+$134=571.000 (ycloned max travel, mm)
+</code></pre>
+
+<p>Make sure to have symmetric settings for x/xc and y/yc!</p>
+<p>Are you wondering why I use 911 and 571 instead of 910 and 570?<br>
+This is because the homing debounce distance (which we'll set to 1mm) will be subtracted from these values and I'd like to see the 910 and 570 in the displays later on.</p>
+<h3 id="acceleration-120ff">Acceleration - $120ff</h3>
+<p>I have a large build and a heavy spindle (dont't follow my example in this regard except you know what you are doing!). I therefore prefer quite low acceleration on x and y: </p>
+<pre><code>$120=50.000 (x accel, mm/sec^2)
+$121=50.000 (y accel, mm/sec^2)
+$122=50.000 (z accel, mm/sec^2)
+$123=50.000 (xcloned accel, mm/sec^2)
+$124=50.000 (ycloned accel, mm/sec^2)
+</code></pre>
+
+<p>Start from these values. You might be able to increase them by a factor of 4 (test it carefully). Remember to have x/xc and y/yc exactly symmetric!</p>
+<h3 id="max-rate-110ff">Max rate - $110ff</h3>
+<p>Not much to say here. Keep x/xc and y/yc symmetric</p>
+<pre><code>$110=4500.000 (x max rate, mm/min)
+$111=4500.000 (y max rate, mm/min)
+$112=800.000 (z max rate, mm/min)
+$113=4500.000 (xcloned max rate, mm/min)
+$114=4500.000 (ycloned max rate, mm/min)
+</code></pre>
+
+<h3 id="stepsmm-100ff">Steps/mm  - $100ff</h3>
+<p>Note: Pablo published quite different settings here. I have the exact setup of the default mpcnc with the lead screw on Z and the T16 timing belts. And came up with these:</p>
+<pre><code>$100=200.000 (x, step/mm)
+$101=200.000 (y, step/mm)
+$102=800.000 (z, step/mm)
+$103=200.000 (xcloned, step/mm)
+$104=200.000 (ycloned, step/mm)
+</code></pre>
+
+<ul>
+<li>to check these, I insert a needle the 1mm clamp of the spindle, put a metal tape measure along one axis (e.g. x), position the neddle at axis_min, travel a specific length and check what the actual travel lenght was.</li>
+<li>recalculate the steps/mm from this</li>
+<li>power on/off the board; I sometimes had issues not doing this especially for these settings</li>
+</ul>
+<h3 id="homing-23-ff">Homing - $23 ff</h3>
+<p>If you made it this far, your machine moves the desired distances in the right directions.</p>
+<p>$23 is the homing dir invert; i have $23=31 which means all axes inverted </p>
+<p>|:-------------|:-------------:-------------:-------------:-------------
+|<strong>value contribution</strong>|2⁴=16|2³=8|2²=4|2¹=2|2⁰=1|
+|<strong>axis</strong>|yc|xc|z|y|x|
+|<strong>defaultmpcnc</strong>=31|1|1|1|1|1|</p>
+<p>and puts home to the lower left of your machine - that's the mpcnc standard.</p>
+<pre><code>Note: the machine should home x and y axis, and leave z as it is.
+This behaviour can be configured in config.h l.153 and 154 if
+you'd like to change it. You need to recompile / flash in case you changed it.
+</code></pre>
+
+<p>Next:
+- trigger each end stop manually and see if it gets displayed as intended (I triggered the x end stop for the following screenshot - note the <em>Idle [x]</em> status, not triggering the end stop, the [x] should disappear again)</p>
+<p><img alt="" src="../assets/images/xbcnc6.png" title="bcnc control" /></p>
+<ul>
+<li>
+<p>when all end stops act as intended:</p>
+<ul>
+<li>hands on the emergency off</li>
+<li>enter $H to start the homing sequence</li>
+<li>if anything is not as intended, emergency stop the machine</li>
+</ul>
+</li>
+<li>
+<p>if everything went well, the homing procedure places the machine at the configured homing pull of distance away from the endstops ($27=1.000 mm)<br>
+The lower left position in grbl as with professional cnc machines, is always negative working area distance; in my case:<br>
+-901/-570</p>
+</li>
+</ul>
+<p><img alt="" src="../assets/images/xbcnc7.png" title="bcnc control" /></p>
+<p>That's it!</p>
+<p>I suggest you learn about <a href="https://www.google.com/search?q=gcode+g54">G54 - G59</a> if you don't already know whats that.<br>
+And get familiar with sending gcode files to your machine.<br>
+Have fun!</p>
+<p><br>
+Feel free to dicuss your questions in the <a href="https://www.v1engineering.com/forum/topic/foss-milling-toolchain-freecad-gbrl-on-ramps-discussion/">related discussion thread</a> </p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../mill_1/" class="btn btn-neutral float-right" title="Milling part 1">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../zoom_1/" class="btn btn-neutral" title="ZOOM grbl+RAMPS+auto squaring"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../zoom_1/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../mill_1/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

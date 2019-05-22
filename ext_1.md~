@@ -1,0 +1,18 @@
+# Extending the part from tutorial 1
+
+[&larr;](index.html "back")
+
+## Sensible settings & ramp in dressup
+
+We'll do the following:
+- use a higher feed (as we are milling xps)
+- use a step over of 25% of toll diameter
+- adapt the step down 2.5mm to get the full depth at 2 passes (actually not necessary for xps
+- add a path *dressup* which adds a ramp to the plunging into the material
+
+
+
+<br>
+Feel free to dicuss your questions in the [related discussion thread](https://www.v1engineering.com/forum/topic/foss-milling-toolchain-freecad-gbrl-on-ramps-discussion/)
+<br>
+[&larr;](index.html "back")
