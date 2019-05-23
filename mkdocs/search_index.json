@@ -262,7 +262,7 @@
         },
         {
             "location": "/ext_1/",
-            "text": "Sensible settings & ramp in dressup\n\n\nWe'll do the following:\n\n\n\n\nuse a higher feed (as we are milling xps)\n\n\nuse a step over of 25% of tool diameter\n\n\nadapt the step down 2.5mm to get the full depth at 2 passes (actually not necessary for xps\n\n\nadd a path \ndressup\n which adds a ramp to the plunging into the material\n\n\n\n\n\n\nFinishing passes & holding tags\n\n\n\n\ntbd\n\n\n\n\nAdd also a link to sliptonic's \n\nJZ4prlR6sps Overview of Holding Tag Dressup\nk1ezXIaOw60 FreeCAD Path Start Points\n\n\n\nFeel free to dicuss your questions in the \nrelated discussion thread",
+            "text": "Sensible settings & ramp in dressup\n\n\nWe'll do the following:\n\n\n\n\nuse a higher feed (as we are milling xps)\n\n\nuse a step over of 25% of tool diameter\n\n\nadapt the step down 2.5mm to get the full depth at 2 passes (actually not necessary for xps\n\n\nadd a path \ndressup\n which adds a ramp to the plunging into the material\n\n\n\n\n\n\nFinishing passes & holding tags\n\n\nWe'll do the following:\n\n\n\n\nadd a finishing pass to the pocket inner contour, based on the edges\n\n\nadd a finishing pass to the island contour based on the face\n\n\nadd a holding tag dressup to the island countour pass\n\n\n\n\nFor the passes I use climb milling (setting \nccw\n).\n\nWhy? See my milling precision experiments discussed \nhere\n and \nhere\n.\n\n\n\n\nSliptonic has great Freecad videos. \nRegarding holding tag dressup\n.\n\n\nWe did not cover how to set the starting point for the path. I f you need it, have a look at sliponics \nvideo\n\n\n\nFeel free to dicuss your questions in the \nrelated discussion thread",
             "title": "Freecad - ramp in, finsish pass, holding tags"
         },
         {
@@ -272,7 +272,7 @@
         },
         {
             "location": "/ext_1/#finishing-passes-holding-tags",
-            "text": "tbd   Add also a link to sliptonic's  \nJZ4prlR6sps Overview of Holding Tag Dressup\nk1ezXIaOw60 FreeCAD Path Start Points  \nFeel free to dicuss your questions in the  related discussion thread",
+            "text": "We'll do the following:   add a finishing pass to the pocket inner contour, based on the edges  add a finishing pass to the island contour based on the face  add a holding tag dressup to the island countour pass   For the passes I use climb milling (setting  ccw ). \nWhy? See my milling precision experiments discussed  here  and  here .   Sliptonic has great Freecad videos.  Regarding holding tag dressup .  We did not cover how to set the starting point for the path. I f you need it, have a look at sliponics  video  \nFeel free to dicuss your questions in the  related discussion thread",
             "title": "Finishing passes &amp; holding tags"
         }
     ]
