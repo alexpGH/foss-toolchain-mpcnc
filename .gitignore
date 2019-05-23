@@ -1,8 +1,6 @@
 
 # ignore the jekyll vendor dir
-_site/
-vendor/
-.bundle
+site/
 **/*~
 Gemfile.lock
 **/#*

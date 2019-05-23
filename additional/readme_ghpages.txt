@@ -1,3 +1,9 @@
+<mkdocs>
+mkdocs build --clean
+mkdocs gh-deploy --clean
+mkdocs serve -a 127.0.0.1:7999
+
+
 <new one>
 go to gh
 new repository
