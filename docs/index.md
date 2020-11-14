@@ -15,7 +15,7 @@ I’m no expert in all of this. Try at your own risk!
 |Nr. | Title | Description      |
 | :------------- | :------------- |:-------------|
 |1| [Freecad part 1](freecad_1) | From *zero* &rarr; gcode; Get FreeCAD, design a pocket with island, export gcode|
-|2| [Controller board, firmware](firmware)  | Controller board & firmware options |
+|2| [Controller board, firmware](firmware_1)  | Controller board & firmware options |
 |3| [ZOOM: controller & firmware option B) ](zoom_1) | grbl on ramps for dual end stop based auto squaring |
 |4| [bCnC](bcnc_1) | Get, configure and get started with [bCNC](https://github.com/vlachoudis/bCNC) |
 |5| [Milling part 1](mill_1) <span style="color:red">**NEW**</span>| Milling the part from tutorial 1|

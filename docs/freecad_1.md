@@ -2,6 +2,8 @@
 
 Note: I use the blender interface for freecad (as I’m using blender regularly). Just right-click in the main window and select navigation-style> blender (shown in the 2nd video).
 
+Note: After my initial tests with FreeCad, I opted for [blender](https://www.blender.org/) and the great [blendercam](https://github.com/vilemduha/blendercam) for design and gCode generation for complex parts (like airfoils). See my [motivation](blenderMot).
+
 | Functionality | Shortcut      |
 | :------------- |:-------------|
 | 3D rotation   |middle mouse botton + move the mouse |

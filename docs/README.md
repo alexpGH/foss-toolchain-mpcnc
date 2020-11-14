@@ -1,6 +1,6 @@
-# A set of tutorials around foss<sup>*1</sup> tools for the mpcnc<sup>*2</sup>
-*1) free and open source<br>
-*2) [mostly printed cnc](https://www.v1engineering.com/specifications/)
+# A set of tutorials around foss<sup>1</sup> tools for the mpcnc<sup>2</sup>
+1) free and open source<br>
+2) [mostly printed cnc](https://www.v1engineering.com/specifications/)
 
 The related discussion can be found in the [forum](https://www.v1engineering.com/forum/topic/foss-milling-toolchain-freecad-gbrl-on-ramps-discussion/) 
 
@@ -14,12 +14,12 @@ I’m no expert in all of this. Try at your own risk!
 
 |Nr. | Title | Description      |
 | :------------- | :------------- |:-------------|
-|1| [Freecad part 1](freecad_1.html) | From *zero* &rarr; gcode; Get FreeCAD, design a pocket with island, export gcode|
-|2| [Controller board, firmware](firmware_1.html)  | Controller board & firmware options |
-|3| [ZOOM: controller & firmware option B) ](zoom_1.html) | grbl on ramps for dual end stop based auto squaring |
-|4| [bCnC](bcnc_1.html) | Get, configure and get started with [bCNC](https://github.com/vlachoudis/bCNC) |
-|5| [Milling part 1](mill_1.html) <span style="color:red">**NEW**</span>| Milling the part from tutorial 1|
-|6| [Extending part 1](mill_1.html) <span style="color:red">**NEW**</span>| Configuring to sensible settings, adding finish pass and holding tags| 
+|1| [Freecad part 1](freecad_1) | From *zero* &rarr; gcode; Get FreeCAD, design a pocket with island, export gcode|
+|2| [Controller board, firmware](firmware_1)  | Controller board & firmware options |
+|3| [ZOOM: controller & firmware option B) ](zoom_1) | grbl on ramps for dual end stop based auto squaring |
+|4| [bCnC](bcnc_1) | Get, configure and get started with [bCNC](https://github.com/vlachoudis/bCNC) |
+|5| [Milling part 1](mill_1) <span style="color:red">**NEW**</span>| Milling the part from tutorial 1|
+|6| [Freecad part 1+](ext_1) <span style="color:red">**NEW**</span>| Configuring to sensible settings, adding finish pass and holding tags| 
 
 ## Motivation
 I really like open source stuff, and I’m quite impressed by [Ryan](https://www.v1engineering.com/members/vicious1/) & folks. I have build my own mpcnc and want to contribute my part to the [V1 universe](https://www.v1engineering.com/).

@@ -1,10 +1,17 @@
 site_name: foss-toolchain-mpcnc
 pages:
 - Home: 'index.md'
-- Freecad part 1: 'freecad_1.md'
-- Controller board, firmware: 'firmware_1.md'
-- ZOOM grbl+RAMPS+auto squaring: 'zoom_1.md'
-- bCNC: 'bcnc_1.md'
-- Milling part 1: 'mill_1.md'
-- Freecad - ramp in, finsish pass, holding tags: 'ext_1.md'
+- Basics:
+  - Freecad part 1: 'freecad_1.md'
+  - Controller board, firmware: 'firmware_1.md'
+  - ZOOM grbl+RAMPS+auto squaring: 'zoom_1.md'
+  - bCNC: 'bcnc_1.md'
+  - Milling part 1: 'mill_1.md'
+  - Freecad - ramp in, finsish pass, holding tags: 'ext_1.md'
+  - Freecad - prepare for 3D: 'freecad_2.md'
+- Blender:
+  - Motivation: blenderMot.md
+
 theme: readthedocs
+#theme: rtd-dropdown
+
