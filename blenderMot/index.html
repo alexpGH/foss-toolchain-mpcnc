@@ -8,7 +8,7 @@
   
   
   
-  <title>Freecad - ramp in, finsish pass, holding tags - foss-toolchain-mpcnc</title>
+  <title>Motivation - foss-toolchain-mpcnc</title>
   
 
   <link rel="shortcut icon" href="../img/favicon.ico">
@@ -23,9 +23,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Freecad - ramp in, finsish pass, holding tags";
-    var mkdocs_page_input_path = "ext_1.md";
-    var mkdocs_page_url = "/ext_1/";
+    var mkdocs_page_name = "Motivation";
+    var mkdocs_page_input_path = "blenderMot.md";
+    var mkdocs_page_url = "/blenderMot/";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js"></script>
@@ -102,18 +102,8 @@
 
         
             
-    <li class="toctree-l1 current">
-        <a class="current" href="./">Freecad - ramp in, finsish pass, holding tags</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#sensible-settings-ramp-in-dressup">Sensible settings &amp; ramp in dressup</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#finishing-passes-holding-tags">Finishing passes &amp; holding tags</a></li>
-                
-            
-            </ul>
+    <li class="toctree-l1 ">
+        <a class="" href="../ext_1/">Freecad - ramp in, finsish pass, holding tags</a>
         
     </li>
 
@@ -134,8 +124,15 @@
 
         
             
-    <li class="toctree-l1 ">
-        <a class="" href="../blenderMot/">Motivation</a>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Motivation</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#motivation-for-using-blender">Motivation for using Blender</a></li>
+                
+            
+            </ul>
         
     </li>
 
@@ -165,11 +162,11 @@
     
       
         
-          <li>Basics &raquo;</li>
+          <li>Blender &raquo;</li>
         
       
     
-    <li>Freecad - ramp in, finsish pass, holding tags</li>
+    <li>Motivation</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -179,29 +176,18 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="sensible-settings-ramp-in-dressup">Sensible settings &amp; ramp in dressup</h1>
-<p>We'll do the following:</p>
-<ul>
-<li>use a higher feed (as we are milling xps)</li>
-<li>use a step over of 25% of tool diameter</li>
-<li>adapt the step down 2.5mm to get the full depth at 2 passes (actually not necessary for xps</li>
-<li>add a path <em>dressup</em> which adds a ramp to the plunging into the material</li>
-</ul>
-<p><a href="https://www.youtube.com/watch?v=m0oiiFteI1w"><img alt="Video" src="http://img.youtube.com/vi/m0oiiFteI1w/0.jpg" /></a></p>
-<h1 id="finishing-passes-holding-tags">Finishing passes &amp; holding tags</h1>
-<p>We'll do the following:</p>
-<ul>
-<li>add a finishing pass to the pocket inner contour, based on the edges</li>
-<li>add a finishing pass to the island contour based on the face</li>
-<li>add a holding tag dressup to the island countour pass</li>
-</ul>
-<p>For the passes I use climb milling (setting <em>ccw</em>).<br>
-Why? See my milling precision experiments discussed <a href="https://www.v1engineering.com/forum/topic/prcission-issue-when-milling/#post-99178">here</a> and <a href="https://www.v1engineering.com/forum/topic/prcission-issue-when-milling/#post-99239">here</a>.</p>
-<p><a href="https://www.youtube.com/watch?v=W2zt-Vm-V3s"><img alt="Video" src="http://img.youtube.com/vi/W2zt-Vm-V3s/0.jpg" /></a></p>
-<p>Sliptonic has great Freecad videos. <a href="https://www.youtube.com/watch?v=JZ4prlR6sps">Regarding holding tag dressup</a>.</p>
-<p>We did not cover how to set the starting point for the path. I f you need it, have a look at sliponics <a href="https://www.youtube.com/watch?v=k1ezXIaOw60">video</a></p>
+                <h1 id="motivation-for-using-blender">Motivation for using Blender</h1>
+<p>After my initial tests with FreeCad, I opted for <a href="https://www.blender.org/">blender</a> and the great <a href="https://github.com/vilemduha/blendercam">blendercam</a> for design and gCode generation for complex parts (like airfoils).</p>
+<p>The main reason is that I usually build 3d sphapes like surfboards, airfoils and wings for hydrofoils, which I construct script based. Blender is great for this. I might add some more details about my approach in this section.</p>
 <p><br>
-Feel free to dicuss your questions in the <a href="https://www.v1engineering.com/forum/topic/foss-milling-toolchain-freecad-gbrl-on-ramps-discussion/">related discussion thread</a></p>
+<strong>Some examples:</strong></p>
+<p>The following 3 pictures show 1/4 of a SUP board foam core with heavily milled-away foam in the inner. The holes go 'down' to 10mm distnace from the surface.</p>
+<p><img alt="" src="../assets/images/sup1.png" title="part of a sup" /></p>
+<p><img alt="" src="../assets/images/sup2.png" title="part of a sup" /></p>
+<p><img alt="" src="../assets/images/sup3.png" title="part of a sup" /></p>
+<p><br>
+The follwoing picture shows 1/2 of an airfoil including the calculated milling path for coarse milling.</p>
+<p><img alt="" src="../assets/images/wing1.png" title="airfoil including path" /></p>
               
             </div>
           </div>
@@ -209,10 +195,8 @@ Feel free to dicuss your questions in the <a href="https://www.v1engineering.com
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../freecad_2/" class="btn btn-neutral float-right" title="Freecad - prepare for 3D">Next <span class="icon icon-circle-arrow-right"></span></a>
       
-      
-        <a href="../mill_1/" class="btn btn-neutral" title="Milling part 1"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../freecad_2/" class="btn btn-neutral" title="Freecad - prepare for 3D"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -238,10 +222,8 @@ Feel free to dicuss your questions in the <a href="https://www.v1engineering.com
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../mill_1/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../freecad_2/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
-      
-        <span style="margin-left: 15px"><a href="../freecad_2/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
