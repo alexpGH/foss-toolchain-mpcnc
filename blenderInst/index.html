@@ -8,7 +8,7 @@
   
   
   
-  <title>Freecad - prepare for 3D - foss-toolchain-mpcnc</title>
+  <title>Installation - foss-toolchain-mpcnc</title>
   
 
   <link rel="shortcut icon" href="../img/favicon.ico">
@@ -23,9 +23,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Freecad - prepare for 3D";
-    var mkdocs_page_input_path = "freecad_2.md";
-    var mkdocs_page_url = "/freecad_2/";
+    var mkdocs_page_name = "Installation";
+    var mkdocs_page_input_path = "blenderInst.md";
+    var mkdocs_page_url = "/blenderInst/";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js"></script>
@@ -109,15 +109,8 @@
 
         
             
-    <li class="toctree-l1 current">
-        <a class="current" href="./">Freecad - prepare for 3D</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#install-opencamlib">Install opencamlib</a></li>
-                
-            
-            </ul>
+    <li class="toctree-l1 ">
+        <a class="" href="../freecad_2/">Freecad - prepare for 3D</a>
         
     </li>
 
@@ -138,8 +131,19 @@
 
         
             
-    <li class="toctree-l1 ">
-        <a class="" href="../blenderInst/">Installation</a>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Installation</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#installation">Installation</a></li>
+                
+                    <li><a class="toctree-l4" href="#blender">Blender</a></li>
+                
+                    <li><a class="toctree-l4" href="#blendercam">BlenderCam</a></li>
+                
+            
+            </ul>
         
     </li>
 
@@ -176,11 +180,11 @@
     
       
         
-          <li>Basics &raquo;</li>
+          <li>Blender &raquo;</li>
         
       
     
-    <li>Freecad - prepare for 3D</li>
+    <li>Installation</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -190,19 +194,12 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="install-opencamlib">Install opencamlib</h1>
-<p>Note: After my initial tests with FreeCad, I opted for <a href="https://www.blender.org/">blender</a> and the great <a href="https://github.com/vilemduha/blendercam">blendercam</a> for design and gCode generation for complex parts (like airfoils). See my <a href="../blenderMot">motivation</a>.</p>
-<p>Get it <a href="https://github.com/aewallin/opencamlib">here</a> and build it. Simple cmake build.
-<br>On my linux system, after installation even after checking that everything is installen in <em>/usr/local/lib</em> and executing <code>ldconfig /usr/local/lib</code> for Freecad to find in () I got</p>
-<pre><code>OpenCamLib is not working!
-</code></pre>
-<p>when starting Freecad and the path workbench.</p>
-<p>The second option is to copy the compiled librarie(s) in the macro folder.
-Find out the macro path in freecad preferences.</p>
-<p><img alt="" src="../assets/images/xfree1.png" title=" " /></p>
-<p>and copy</p>
-<p><br>
-Feel free to dicuss your questions in the <a href="https://www.v1engineering.com/forum/topic/foss-milling-toolchain-freecad-gbrl-on-ramps-discussion/">related discussion thread</a> </p>
+                <h1 id="installation">Installation</h1>
+<h2 id="blender">Blender</h2>
+<p>I currently use <a href="https://www.blender.org/download/">blender</a>'s long term support version 2.83.9 (on linux) spcifically the tgz download, unpack and therein start blender. This allows me to use different versions in parallel (just in case).</p>
+<h2 id="blendercam">BlenderCam</h2>
+<p>In order to be able to use <a href="https://github.com/vilemduha/blendercam">blendercam</a> follow the <a href="https://github.com/vilemduha/blendercam/wiki">documentation</a>.
+I might later on add some notes here, but for now concentrate on the scripting part for wing design.</p>
               
             </div>
           </div>
@@ -210,10 +207,10 @@ Feel free to dicuss your questions in the <a href="https://www.v1engineering.com
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../blenderMot/" class="btn btn-neutral float-right" title="Motivation">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../blenderAirfoils/" class="btn btn-neutral float-right" title="Basic python scripting 4 airfoils">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../ext_1/" class="btn btn-neutral" title="Freecad - ramp in, finsish pass, holding tags"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../blenderMot/" class="btn btn-neutral" title="Motivation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -239,10 +236,10 @@ Feel free to dicuss your questions in the <a href="https://www.v1engineering.com
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../ext_1/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../blenderMot/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../blenderMot/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../blenderAirfoils/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

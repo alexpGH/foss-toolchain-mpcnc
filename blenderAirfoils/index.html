@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <title>Basic python scripting 4 airfoils - foss-toolchain-mpcnc</title>
+  
+
+  <link rel="shortcut icon" href="../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Basic python scripting 4 airfoils";
+    var mkdocs_page_input_path = "blenderAirfoils.md";
+    var mkdocs_page_url = "/blenderAirfoils/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> foss-toolchain-mpcnc</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">Home</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Basics</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../freecad_1/">Freecad part 1</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../firmware_1/">Controller board, firmware</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../zoom_1/">ZOOM grbl+RAMPS+auto squaring</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../bcnc_1/">bCNC</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../mill_1/">Milling part 1</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../ext_1/">Freecad - ramp in, finsish pass, holding tags</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../freecad_2/">Freecad - prepare for 3D</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Blender</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../blenderMot/">Motivation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../blenderInst/">Installation</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Basic python scripting 4 airfoils</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#why-script-based-modelling">Why script based modelling</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#the-basic-scripts">The basic scripts</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#getting-started">Getting started</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#scripting-tools">Scripting tools</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#the-ellipticplanewingpy-script">The ellipticPlaneWing.py script</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">foss-toolchain-mpcnc</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Blender &raquo;</li>
+        
+      
+    
+    <li>Basic python scripting 4 airfoils</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="why-script-based-modelling">Why script based modelling</h1>
+<p>I like script based, parametric modelling, because I can 'replay' complex design sequences with adapted parameters.</p>
+<p>Examples are my kite-hydrofoil and SUP hydrofoil front and rear wings, which follow the same design approach, with the rear wing being a smaller version of the front wing and the SUP/Wave front wing (I call it <em>monster</em>) having a 3 x chordlength.</p>
+<p><strong>Kite-foil</strong></p>
+<p><img alt="" src="../assets/images/kitefoil.png" title="my kitefoil set-up" /></p>
+<p><br><br>
+<strong>Sup/Wave foil <em>monster</em> wing</strong></p>
+<p>Wonder why it look that way? Pretty easy: I use it with kite and with my SUP (withe paddle) in waves.
+When I was waching SUP wave videos form others (in the early days) I saw that they need to palle like crazy to get flying, get flying late, wenh the wave is already steep, then race down the slope and get far in front of the wave. In addition, I wanted to be as agile (tight curves) as with my kite-foil</p>
+<p>My design conditions therefore have been:</p>
+<ul>
+<li>keep the width at 70cm only (today typical SUP foils use 90cm or even larger!)</li>
+<li>get to fly at ~12km/h to catch the wave early before it gest to steep</li>
+<li>limit the max velocity via slef-limitation</li>
+</ul>
+<p>all in all, using a low aspect ratio (large chord relative to given spanwidth) and generating massive induced drag did the job and I'm quite pleased with the result.</p>
+<p><img alt="" src="../assets/images/supfoil.png" title="my kitefoil set-up" /></p>
+<h1 id="the-basic-scripts">The basic scripts</h1>
+<p>I provide my scripts at <a href="https://github.com/alexpGH/blenderCadCamTools">github</a>.
+The folder <em>scripts</em> contains wingLib.py, the library holding the basic worker routines and 2D airfoil data</p>
+<table>
+<thead>
+<tr>
+<th>Folder</th>
+<th align="center">Name</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>scripts</td>
+<td align="center">wingLib.py</td>
+<td>basic worker routines to e.g. get from 2D points to 3D surfaces</td>
+</tr>
+<tr>
+<td>scripts</td>
+<td align="center">afData_xy.py</td>
+<td>2D airfoil data for profile <em>xy</em></td>
+</tr>
+<tr>
+<td>planes/basicWing</td>
+<td align="center">basicWing.blend</td>
+<td>the blender file for the basic wing example</td>
+</tr>
+<tr>
+<td>planes/basicWing</td>
+<td align="center">ellipticPlaneWing.py</td>
+<td>the python script used in the basicWing.blend file to generate a planar wing with elliptic chord</td>
+</tr>
+</tbody>
+</table>
+<p>I currently include the <em>h105</em> profile, which I (and many others) use for hydrofoils.
+This will be extended bit by bit according to my needs.
+Feel free to add your own profile data and send me a pull request.
+If you are looking for a specific dataset, check out <a href="https://m-selig.ae.illinois.edu/ads/coord_database.html">UIUC Airfoil Database</a>.</p>
+<h1 id="getting-started">Getting started</h1>
+<p><a name="gettingStarted"></a>
+<strong>What we'll be doing:</strong></p>
+<ol>
+<li>Take a set of points for a  2d profile (in this case the h105)</li>
+<li>Determine the position of the leading edge according to a parametrized curve (to achieve the seewp back of the wing tip region)</li>
+<li>Determine the chordlength along the span according to an elliptic curve</li>
+<li>Scale and place the 2D points and fit a curve through them (we then have a set of 2D profile curves placed in 3d as wing sections)</li>
+<li>Fit a surface through all the curves </li>
+</ol>
+<p>This gives us the 3D wing</p>
+<p><img alt="" src="../assets/images/kitefoilFront.png" title="final kitefoil wing in blender" /></p>
+<p>which could then be used for generating CAM paths using blenderCam.</p>
+<p><br>
+<strong>Open blender's scripting workspace</strong>
+<br>Once you have blender up and running, clone the <a href="https://github.com/alexpGH/blenderCadCamTools">blenderCadCamTools</a>.
+<br>Start blender and open the basicWing.blend file.<br />
+The reult should look like: 
+<img alt="" src="../assets/images/blenderScript1.png" title="blender scripting look" /></p>
+<p>If not, check to be on the <em>scripting workspace</em> - you can select the different workspace in the top menu to the right of the standard menue (File, ...).
+You will most probaly end-up switching between <em>Modeling</em> and <em>Scripting</em>.</p>
+<p>In the <em>Scripting</em> workspace, the script <em>ellipticPlaneWing.py</em> from the repo (stored right next to the blend file) should be open.
+<br>If not, click the symbol which looks like a folder (second from right), browse to where you cloned the repo to and open planes/basicWing/ellipticPlaneWing.py </p>
+<p><img alt="" src="../assets/images/blenderScript2.png" title="blender open script" /></p>
+<h1 id="scripting-tools">Scripting tools</h1>
+<p>On the left side, you have the</p>
+<ul>
+<li>usual modeling wintow (top)</li>
+<li>python console (middle) where you can enter python commands</li>
+<li>python commands blender uses when you model (using the mouse and user interface). This is quite helful, as you can copy paste the commands over to your scripts  </li>
+</ul>
+<p>Now click in the modeling window (top left) and hit <strong>n</strong> to pu-up the <em>item transform dialogue</em> which shows the location properties of the selected object (the wing). </p>
+<p><img alt="" src="../assets/images/blenderScript3.png" title="transform dialogue" /></p>
+<p>In the field for <em>Location Y</em> enter <strong>0</strong> and hit enter.
+The script output window (left bottom shows the python api used to set the Y location).
+<img alt="" src="../assets/images/blenderScript4.png" title="UI -&gt; script" />
+Select via left-click (blue), right-click&gt;copy and paste in the python console (left middle).
+<br>Change '= 0' to e.g. <strong>= 0.042</strong> and hit enter.
+<br>The wing now moved to that position:
+<img alt="" src="../assets/images/blenderScript5.png" title="" />
+This is what we use at the end of the script (line 99) to place the wing at the origin (previous figure on the right).
+<br><strong>Take home</strong>: what you can model can be scripted. Just open the scripting workspace and have a look at the api command output.</p>
+<h1 id="the-ellipticplanewingpy-script">The ellipticPlaneWing.py script</h1>
+<p>The first few lines import necessary libraries, then extend the path to include the blenderCadCam scripts directory.
+Line 10 uses a relative path (relative to the current blend file). If you cloned the repo, the scripts directory is 2 dirs up from basicWing.blend.
+<img alt="" src="../assets/images/blenderScript6.png" title="" />
+Line 28 &amp; 29 then imports / reloads the winLib (the reload is necessary in case the file changed during the blender session).
+<br>Line 31/32 imports the h105 2d profile.</p>
+<p>Configure the if clause line 43 to <strong>1</strong>, 50 and 94 to <strong>0</strong>
+<img alt="" src="../assets/images/blenderScript7.png" title="" />
+Hit <em>run script</em> (upper right of the script window). Noe the wing should have been disappeared. The deleteAll() helper routine in fact deletes all except the camera and lamp.</p>
+<p>Configure the if clause line 43 AND 50 to <strong>1</strong>, 94 to <strong>0</strong>. Run the script.
+<br>You should now have a set of 2D profiles, named <em>2dsection_x</em>.
+<img alt="" src="../assets/images/blenderScript8.png" title="" />
+This is the result of executing steps 1.) to 4.) from <a href="#gettingStarted">some</a></p>
+<p>Configure the if clause line 43, 50 AND 94 to <strong>1</strong>. Run the script. This should give you the result of step 5: a surface fitted through the 2d curves.</p>
+<p>Read through the scripts, it should be pretty obvious.
+An important hint: the sufaces need to be closed, otherwize you will get weird errors later on (mainly when using boolean intersections for designing moulds etc.). This is done in two places:</p>
+<ol>
+<li>Each of the 2D curves are closed (in placeSectionsMinLimited calling curveBezierFromPoints(hCoord,name,True) True=closed curve)</li>
+<li>In bridgeListOfEdgeLoopsCloseOuterWithFace (as the name states: outer edge loop is closed with face))</li>
+</ol>
+<p>Getting there took me quite some time fiddling around. It's like always: once you have it, it looks straight forward.
+<br>You can now imagine how to generate bend-up wing tips etc. Either use the usual modeling tools of blender to do it once. Alternatively, define a function and adapt z location and y rotation of the individual sections before fitting the surface.</p>
+<p>Moulds can now be designed by subtracting the wing from cubes etc. Play a bit with the modeling interface, have a look at the api command output and start designing your own scripts. </p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../blenderInst/" class="btn btn-neutral" title="Installation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../blenderInst/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+
+</body>
+</html>
