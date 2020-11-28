@@ -9,15 +9,15 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Installation - foss-toolchain-mpcnc</title>
+  <title>KissSlope project - foss-toolchain-mpcnc</title>
   <link rel="stylesheet" href="../css/theme.css" />
   <link rel="stylesheet" href="../css/theme_extra.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Installation";
-    var mkdocs_page_input_path = "blenderInst.md";
+    var mkdocs_page_name = "KissSlope project";
+    var mkdocs_page_input_path = "blenderKissSlope.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -70,17 +70,23 @@
                 <ul class="current">
                     <li class="toctree-l1"><a class="reference internal" href="../blenderMot/">Motivation</a>
                     </li>
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Installation</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#blender">Blender</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#blendercam">BlenderCam</a>
-    </li>
-    </ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../blenderInst/">Installation</a>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../blenderAirfoils/">Basic python scripting 4 airfoils</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../blenderKissSlope/">KissSlope project</a>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">KissSlope project</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#wing-outline">Wing outline</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#xlfr5">XLFR5</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#installation">Installation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#next">Next</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
                     </li>
                 </ul>
       </div>
@@ -108,7 +114,7 @@
         
       
     
-    <li>Installation</li>
+    <li>KissSlope project</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -119,13 +125,44 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="installation">Installation</h1>
-<h2 id="blender">Blender</h2>
-<p>I currently use <a href="https://www.blender.org/download/">blender</a>'s long term support version 2.83.9 (on linux) spcifically the tgz download, unpack and therein start blender. This allows me to use different versions in parallel (just in case).</p>
-<p>For the curve simplification check to have edit&gt;preferences&gt;add-ons&gt; Add curve: simplfy curves+ activated</p>
-<h2 id="blendercam">BlenderCam</h2>
-<p>In order to be able to use <a href="https://github.com/vilemduha/blendercam">blendercam</a> follow the <a href="https://github.com/vilemduha/blendercam/wiki">documentation</a>.
-I might later on add some notes here, but for now concentrate on the scripting part for wing design.</p>
+                <h1 id="what-is-this">What is this</h1>
+<p>This are some early thoughts and design for a simple to build (easy to replace) sailplane for slope soaring. With simple to build I mean simple when you have access to a cnc milling machine for milling foam.</p>
+<h2 id="wing-outline">Wing outline</h2>
+<p>The outline should be based on the elliptic planar wing basis. Having access to cnc milling, the straight outlines of the Swift or Kobutz are not required.
+<br>We can make use of more organic-like and more efficient (regarding induced drag) shapes like the stingray. You have some spare time? Read <a href="https://journals.sfu.ca/ts/index.php/ts/article/download/524/495">Epplers great paper on induced drag and winglets</a>.</p>
+<p><strong>How do we achieve this?</strong>
+<br>First, we import an image of the said geometry in blender. I used the outline provided at <a href="https://www.rc-network.de/threads/stingray-profilfrage.173616/">Rc-Network</a> and, as an alternative with a more elliptic shape, also the modster flash, which is also sold as lightning V2.  </p>
+<p>Import the image: add &gt; Image &gt; as background and place &amp; scale it.</p>
+<p>In the scripting workspace, <em>kissSlopeWing1.py</em> should be open. In there, I have the configuration for a more modster-like layout and one with less backwards sweep similar to the stingray.</p>
+<p><img alt="" src="../assets/images/outlines1.png" title="my kitefoil set-up" /></p>
+<p>I personally prefer the upper one (for aesthetic reasons).</p>
+<h2 id="xlfr5">XLFR5</h2>
+<h3 id="installation">Installation</h3>
+<p>I build the main repo of André (the author of xflr5, aka <em>techwinder</em>).
+In case of problems you can also try to build the <a href="https://github.com/polmes/xflr5-ubuntu">ubuntu specific patched version</a>.</p>
+<pre><code>svn checkout https://svn.code.sf.net/p/xflr5/code/trunk xflr5-code
+</code></pre>
+<p>Install prerequisites</p>
+<pre><code>apt-get install build-essential mesa-common-dev mesa-utils libgl1-mesa-dev libglu1-mesa-dev qt5-qmake libqt5opengl5-dev
+</code></pre>
+<p>Building
+<br>Note: I initially had an error:</p>
+<blockquote>
+<p>cd xflr5-engine/ &amp;&amp; ( test -e Makefile || /usr/lib/qt5/bin/qmake -o Makefile /home/alexp/wicht_soft/xflr5-code/xflr5/xflr5-engine/xflr5-engine.pro ) &amp;&amp; make -f Makefile 
+Project ERROR: Unknown module(s) in QT: core gui
+make: *** [Makefile:49: sub-xflr5-engine-make_first] Error 3</p>
+</blockquote>
+<p>Seems to have been fixed by installing libqt5opengl5-dev</p>
+<pre><code>cd xflr5-code/xflr5
+qmake
+make
+sudo make install
+sudo ldconfig
+</code></pre>
+<p>Finally, start xlfr5</p>
+<pre><code>xlfr5
+</code></pre>
+<h3 id="next">Next</h3>
               
             </div>
           </div>
@@ -133,10 +170,8 @@ I might later on add some notes here, but for now concentrate on the scripting p
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../blenderAirfoils/" class="btn btn-neutral float-right" title="Basic python scripting 4 airfoils">Next <span class="icon icon-circle-arrow-right"></span></a>
       
-      
-        <a href="../blenderMot/" class="btn btn-neutral" title="Motivation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../blenderAirfoils/" class="btn btn-neutral" title="Basic python scripting 4 airfoils"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -162,10 +197,8 @@ I might later on add some notes here, but for now concentrate on the scripting p
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../blenderMot/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../blenderAirfoils/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
-      
-        <span style="margin-left: 15px"><a href="../blenderAirfoils/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

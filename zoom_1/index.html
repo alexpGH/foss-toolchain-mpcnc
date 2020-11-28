@@ -8,31 +8,23 @@
   
   
   
-  <title>ZOOM grbl+RAMPS+auto squaring - foss-toolchain-mpcnc</title>
-  
-
   <link rel="shortcut icon" href="../img/favicon.ico">
-
-  
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
-
-  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="../css/highlight.css">
-
+  <title>ZOOM grbl+RAMPS+auto squaring - foss-toolchain-mpcnc</title>
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
   
   <script>
     // Current page data
     var mkdocs_page_name = "ZOOM grbl+RAMPS+auto squaring";
     var mkdocs_page_input_path = "zoom_1.md";
-    var mkdocs_page_url = "/zoom_1/";
+    var mkdocs_page_url = null;
   </script>
   
-  <script src="../js/jquery-2.1.1.min.js"></script>
-  <script src="../js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="../js/highlight.pack.js"></script>
-  <script src="../js/theme.js"></script> 
-
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
 
@@ -42,127 +34,59 @@
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href=".." class="icon icon-home"> foss-toolchain-mpcnc</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-        <ul class="current">
-          
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="..">Home</a>
-        
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Basics</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../freecad_1/">Freecad part 1</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../firmware_1/">Controller board, firmware</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">ZOOM grbl+RAMPS+auto squaring</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#step1-get-the-firmware">Step1 – get the firmware</a>
     </li>
-<li>
-          
-            <li>
-    <ul class="subnav">
-    <li><span>Basics</span></li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../freecad_1/">Freecad part 1</a>
-        
+    <li class="toctree-l2"><a class="reference internal" href="#step2-configure-the-firmware">Step2 - configure the firmware</a>
     </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../firmware_1/">Controller board, firmware</a>
-        
+    <li class="toctree-l2"><a class="reference internal" href="#step3-flash-the-firmware">Step3 – flash the firmware</a>
     </li>
-
-        
-            
-    <li class="toctree-l1 current">
-        <a class="current" href="./">ZOOM grbl+RAMPS+auto squaring</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#spotlight-on">Spotlight on</a></li>
-                
-                    <li><a class="toctree-l4" href="#step1-get-the-firmware">Step1 – get the firmware</a></li>
-                
-                    <li><a class="toctree-l4" href="#step2-configure-the-firmware">Step2 - configure the firmware</a></li>
-                
-                    <li><a class="toctree-l4" href="#step3-flash-the-firmware">Step3 – flash the firmware</a></li>
-                
-            
-            </ul>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../bcnc_1/">bCNC</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../mill_1/">Milling part 1</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../ext_1/">Freecad - ramp in, finsish pass, holding tags</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../freecad_2/">Freecad - prepare for 3D</a>
-        
-    </li>
-
-        
     </ul>
-<li>
-          
-            <li>
-    <ul class="subnav">
-    <li><span>Blender</span></li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../blenderMot/">Motivation</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../blenderInst/">Installation</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../blenderAirfoils/">Basic python scripting 4 airfoils</a>
-        
-    </li>
-
-        
-    </ul>
-<li>
-          
-        </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../bcnc_1/">bCNC</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../mill_1/">Milling part 1</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../ext_1/">Freecad - ramp in, finsish pass, holding tags</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../freecad_2/">Freecad - prepare for 3D</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Blender</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../blenderMot/">Motivation</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../blenderInst/">Installation</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../blenderAirfoils/">Basic python scripting 4 airfoils</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../blenderKissSlope/">KissSlope project</a>
+                    </li>
+                </ul>
       </div>
-      &nbsp;
+    </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
@@ -191,6 +115,7 @@
       
     </li>
   </ul>
+  
   <hr/>
 </div>
           <div role="main">
@@ -203,7 +128,7 @@
 <li>Either download the rar file from Pablo <a href="https://www.v1engineering.com/forum/topic/grbl-running-on-ramps/#post-78315">here</a> or <a href="https://github.com/johnboiles/grbl-Mega-5X/tree/c640018f846bba11a4228c5758af2fb21367d01a">this version from Johns gitHub</a>.</li>
 <li>Unpack / browse into the downloaded stuff</li>
 <li>
-<p>The contents should look like this (except the <em>grblSettings_mpcncDualEndStop_bCNC.txt</em> which is not in the Johns repo yet, but can be found <a href="../assets/files/grblSettings_mpcncDualEndStop_bCNC.txt">in this repo</a> ):
+<p>The contents should look like this (except the <em>grblSettings_mpcncDualEndStop_bCNC.txt</em> which is not in the Johns repo yet, but can be found <a href="/assets/files/grblSettings_mpcncDualEndStop_bCNC.txt">in this repo</a> ):
 <img alt="" src="../assets/images/xgrbl.png" title="contents of the downloaded version of grbl-m-5x" /></p>
 </li>
 <li>
@@ -229,7 +154,7 @@ Go to line 261.</p>
 <p>The mpcnc default for end stops however is (and I think this is sensible, <a href="https://www.v1engineering.com/auto-square-dual-endstops/">see Ryans arguments</a>) normally closed (NC). This means using grbl as is, you'll get all end stops firing an alarm when <em>NOT</em> triggered.</p>
 <p><strong>End stop configuration - $5 not working as intended &#8623;</strong>
 <br>
-We normally would use grbl's configuration command  $5=1, which inverts ALL limit pins and could be adapted in the frontend, ess e.g. <a href="../bcnc_1.html">bCNC</a> settings.
+We normally would use grbl's configuration command  $5=1, which inverts ALL limit pins and could be adapted in the frontend, ess e.g. <a href="../bcnc_1">bCNC</a> settings.
 <br>
 Unfortunately this does <em>NOT</em> work (I tried it and alarms I could not get rid of).</p>
 <p><strong>End stop configuration - solution: invert individual pins</strong>
@@ -238,7 +163,6 @@ Fortunately, there exists (in line 264) #define INVERT_MIN_LIMIT_PIN_MASK, which
 <p>We'll be using our knowledge about the AXIS_n definition we had learned about previously and set (<em>Note: this is only necessary if you use your endstops in NC; for NO leave it commented out!</em>)</p>
 <pre><code>#define INVERT_MIN_LIMIT_PIN_MASK ((1&lt;&lt;AXIS_1) | (1&lt;&lt;AXIS_2) | (1&lt;&lt;AXIS_4) | (1&lt;&lt;AXIS_5))
 </code></pre>
-
 <p>This, by the way, also allows you to leave the unused pins (e.g. ZMIN, ZMAX in my case) open.
 Unfamiliar with bitmasks? Have a <a href="https://codeforces.com/blog/entry/18169">read</a>.</p>
 <p>If you are curious how it's applied, have a read in <em>limits.c</em> line 192ff limits_get_state().<br>
@@ -288,9 +212,9 @@ Feel free to dicuss your questions in the <a href="https://www.v1engineering.com
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-	  
+      
         </div>
       </div>
 
@@ -298,7 +222,7 @@ Feel free to dicuss your questions in the <a href="https://www.v1engineering.com
 
   </div>
 
-<div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
@@ -309,6 +233,14 @@ Feel free to dicuss your questions in the <a href="https://www.v1engineering.com
       
     </span>
 </div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
 
 </body>
 </html>

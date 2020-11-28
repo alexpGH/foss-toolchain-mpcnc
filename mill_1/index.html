@@ -8,31 +8,23 @@
   
   
   
-  <title>Milling part 1 - foss-toolchain-mpcnc</title>
-  
-
   <link rel="shortcut icon" href="../img/favicon.ico">
-
-  
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
-
-  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="../css/highlight.css">
-
+  <title>Milling part 1 - foss-toolchain-mpcnc</title>
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
   
   <script>
     // Current page data
     var mkdocs_page_name = "Milling part 1";
     var mkdocs_page_input_path = "mill_1.md";
-    var mkdocs_page_url = "/mill_1/";
+    var mkdocs_page_url = null;
   </script>
   
-  <script src="../js/jquery-2.1.1.min.js"></script>
-  <script src="../js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="../js/highlight.pack.js"></script>
-  <script src="../js/theme.js"></script> 
-
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
 
@@ -42,129 +34,61 @@
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href=".." class="icon icon-home"> foss-toolchain-mpcnc</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-        <ul class="current">
-          
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="..">Home</a>
-        
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Basics</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../freecad_1/">Freecad part 1</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../firmware_1/">Controller board, firmware</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../zoom_1/">ZOOM grbl+RAMPS+auto squaring</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../bcnc_1/">bCNC</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Milling part 1</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#position-your-machine">Position your machine:</a>
     </li>
-<li>
-          
-            <li>
-    <ul class="subnav">
-    <li><span>Basics</span></li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../freecad_1/">Freecad part 1</a>
-        
+    <li class="toctree-l2"><a class="reference internal" href="#possible-pitfall-why-did-i-use-the-wrong-z-position">Possible pitfall - why did I use the wrong z position?</a>
     </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../firmware_1/">Controller board, firmware</a>
-        
+    <li class="toctree-l2"><a class="reference internal" href="#machine-at-work">Machine at work</a>
     </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../zoom_1/">ZOOM grbl+RAMPS+auto squaring</a>
-        
+    <li class="toctree-l2"><a class="reference internal" href="#open-points">Open points</a>
     </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../bcnc_1/">bCNC</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 current">
-        <a class="current" href="./">Milling part 1</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#import-the-gcode">Import the gcode</a></li>
-                
-                    <li><a class="toctree-l4" href="#position-your-machine">Position your machine:</a></li>
-                
-                    <li><a class="toctree-l4" href="#possible-pitfall-why-did-i-use-the-wrong-z-position">Possible pitfall - why did I use the wrong z position?</a></li>
-                
-                    <li><a class="toctree-l4" href="#machine-at-work">Machine at work</a></li>
-                
-                    <li><a class="toctree-l4" href="#open-points">Open points</a></li>
-                
-            
-            </ul>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../ext_1/">Freecad - ramp in, finsish pass, holding tags</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../freecad_2/">Freecad - prepare for 3D</a>
-        
-    </li>
-
-        
     </ul>
-<li>
-          
-            <li>
-    <ul class="subnav">
-    <li><span>Blender</span></li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../blenderMot/">Motivation</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../blenderInst/">Installation</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../blenderAirfoils/">Basic python scripting 4 airfoils</a>
-        
-    </li>
-
-        
-    </ul>
-<li>
-          
-        </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../ext_1/">Freecad - ramp in, finsish pass, holding tags</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../freecad_2/">Freecad - prepare for 3D</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Blender</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../blenderMot/">Motivation</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../blenderInst/">Installation</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../blenderAirfoils/">Basic python scripting 4 airfoils</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../blenderKissSlope/">KissSlope project</a>
+                    </li>
+                </ul>
       </div>
-      &nbsp;
+    </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
@@ -193,6 +117,7 @@
       
     </li>
   </ul>
+  
   <hr/>
 </div>
           <div role="main">
@@ -203,7 +128,7 @@
 <li>File&gt;Open the gcode exported in tutorial 1 in bCNC</li>
 <li>In the control tab, you can select the desired view (e.g. x-y and y-z) as shown in the following pictures</li>
 </ul>
-<p><img alt="" src="../assets/images/xmill2.png" title=" " /></p>
+<p><img alt="" src="../assets/images/xmill2.png" title="" /></p>
 <p>The red circle / triagle indicates the position of the machine relative to the workspace position (WPos).</p>
 <p>Note that, different from estlcam 2D default, the origin of the path is below the part (as can be seen in the y-z view). Have a look in the gcode to see that we work from positive coordinates down:
 - clearance plane at z=+25
@@ -213,15 +138,14 @@
 used z=+25 (which is the clearence height) instead of z=+20mm, the actual start
 height for my milling operation. The follwoing description describes the correct setting.
 </code></pre>
-
 <p>Have a look at the depth settings of the job in FreeCAD, especially <em>Clearence height</em>, <em>Start Depth</em> and <em>Final Depth</em> to crosscheck the correct settings. </p>
-<p><img alt="" src="../assets/images/xmill4.png" title=" " /></p>
+<p><img alt="" src="../assets/images/xmill4.png" title="" /></p>
 <h2 id="position-your-machine">Position your machine:</h2>
 <ul>
 <li>Move your machine and place it relative to the workpiece where you want to have your x/y zero.</li>
 <li>Hit xy=0 in the control window<br> you should now have the red circle in x-y view right on the origin of the path:
-<img alt="" src="../assets/images/xmill1.png" title=" " />
-<br><br><img alt="" src="../assets/images/xmill3.png" title=" " /></li>
+<img alt="" src="../assets/images/xmill1.png" title="" />
+<br><br><img alt="" src="../assets/images/xmill3.png" title="" /></li>
 <li>Position the milling cutter right on top of the workpiece. This is the <em>Start Depth</em> - in our case z=+20mm </li>
 <li>Use g92 z 20 to set the machine position accordingly (and not +25 as I did).</li>
 <li>Move up in Z, power on the spindle</li>
@@ -264,9 +188,9 @@ Feel free to dicuss your questions in the <a href="https://www.v1engineering.com
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-	  
+      
         </div>
       </div>
 
@@ -274,7 +198,7 @@ Feel free to dicuss your questions in the <a href="https://www.v1engineering.com
 
   </div>
 
-<div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
@@ -285,6 +209,14 @@ Feel free to dicuss your questions in the <a href="https://www.v1engineering.com
       
     </span>
 </div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
 
 </body>
 </html>

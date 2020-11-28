@@ -1,80 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-    
-    <url>
-     <loc>None/</loc>
-     <lastmod>2020-11-22</lastmod>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
+     <loc>None</loc>
+     <lastmod>2020-11-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>None</loc>
+     <lastmod>2020-11-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>None</loc>
+     <lastmod>2020-11-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>None</loc>
+     <lastmod>2020-11-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>None</loc>
+     <lastmod>2020-11-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>None</loc>
+     <lastmod>2020-11-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>None</loc>
+     <lastmod>2020-11-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>None</loc>
+     <lastmod>2020-11-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>None</loc>
+     <lastmod>2020-11-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>None</loc>
+     <lastmod>2020-11-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>None</loc>
+     <lastmod>2020-11-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>None</loc>
+     <lastmod>2020-11-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
-    
-        
-    <url>
-     <loc>None/freecad_1/</loc>
-     <lastmod>2020-11-22</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/firmware_1/</loc>
-     <lastmod>2020-11-22</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/zoom_1/</loc>
-     <lastmod>2020-11-22</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/bcnc_1/</loc>
-     <lastmod>2020-11-22</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/mill_1/</loc>
-     <lastmod>2020-11-22</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/ext_1/</loc>
-     <lastmod>2020-11-22</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/freecad_2/</loc>
-     <lastmod>2020-11-22</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    
-
-    
-        
-    <url>
-     <loc>None/blenderMot/</loc>
-     <lastmod>2020-11-22</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/blenderInst/</loc>
-     <lastmod>2020-11-22</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/blenderAirfoils/</loc>
-     <lastmod>2020-11-22</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    
-
 </urlset>

@@ -1,10 +1,9 @@
 # Controller & firmware options
 
-[&larr;](index.html "back")
-
 A, B, C are different options; choose the one you prefer – as always, at your own risk!
 
-## A) Grbl on Ramps (and possibly others<sup>*1</sup>) – for the default mpcnc setup (no dual end stops)
+## A) Grbl on Ramps - default mpcnc (no dual end stops)
+(and possibly others<sup>*1</sup>)
 ### Controller & firmware
 &#42;1) *please report about any other boards in use including a link to documentation*
 
@@ -15,7 +14,7 @@ I have read of people using it successfully. *Perhaps someone could confirm this
 
 ### Front-end
 
-For boards running gbrl [bCnC](bcnc_1.html) is a great solution, as it runs on python and therefore should be available on many platforms.
+For boards running gbrl [bCnC](bcnc_1) is a great solution, as it runs on python and therefore should be available on many platforms.
 
 
 ## B) Grbl on Ramps – dual-end-stop, auto-squaring
@@ -29,12 +28,13 @@ See also the detailed tutorial [ZOOM on option B)](zoom_1.html).
 The [‘main’ post](https://www.v1engineering.com/forum/topic/grbl-running-on-ramps/#post-78315) with the download link to the current version.
 
 ### Front-end
-[bCnC](bcnc_1.html)
+[bCnC](bcnc_1)
 
  
 ## C) General solution Marlin-mpcnc post in FreeCad
 
 **Not yet** (I need to test it): provide an path: output: mpcnc-marlin option in FreeCad. Looks doable to me.
+If you want to get this going, see and support [this](https://www.v1engineering.com/forum/topic/foss-marlin-pp-for-the-good-what-do-you-think/)
 
 To be honest, I like this approach, as it would allow everybody to stick with the default firmware and his board.
 
@@ -58,5 +58,3 @@ Just what you are using currently.
 <br>
 Feel free to dicuss your questions in the [related discussion thread](https://www.v1engineering.com/forum/topic/foss-milling-toolchain-freecad-gbrl-on-ramps-discussion/) 
 
-
-[&larr;](index.html "back")

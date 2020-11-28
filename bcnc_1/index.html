@@ -8,31 +8,23 @@
   
   
   
-  <title>bCNC - foss-toolchain-mpcnc</title>
-  
-
   <link rel="shortcut icon" href="../img/favicon.ico">
-
-  
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
-
-  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="../css/highlight.css">
-
+  <title>bCNC - foss-toolchain-mpcnc</title>
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
   
   <script>
     // Current page data
     var mkdocs_page_name = "bCNC";
     var mkdocs_page_input_path = "bcnc_1.md";
-    var mkdocs_page_url = "/bcnc_1/";
+    var mkdocs_page_url = null;
   </script>
   
-  <script src="../js/jquery-2.1.1.min.js"></script>
-  <script src="../js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="../js/highlight.pack.js"></script>
-  <script src="../js/theme.js"></script> 
-
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
 
@@ -42,129 +34,77 @@
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href=".." class="icon icon-home"> foss-toolchain-mpcnc</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-        <ul class="current">
-          
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="..">Home</a>
-        
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Basics</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../freecad_1/">Freecad part 1</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../firmware_1/">Controller board, firmware</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../zoom_1/">ZOOM grbl+RAMPS+auto squaring</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">bCNC</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#step-1-prepare">Step 1 - prepare</a>
     </li>
-<li>
-          
-            <li>
-    <ul class="subnav">
-    <li><span>Basics</span></li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../freecad_1/">Freecad part 1</a>
-        
+    <li class="toctree-l2"><a class="reference internal" href="#step-2-connect-your-machine-to-bcnc">Step 2 - connect your machine to bCNC</a>
     </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../firmware_1/">Controller board, firmware</a>
-        
+    <li class="toctree-l2"><a class="reference internal" href="#step-3-check-configuration-basics">Step 3 - check configuration basics</a>
     </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../zoom_1/">ZOOM grbl+RAMPS+auto squaring</a>
-        
+    <li class="toctree-l2"><a class="reference internal" href="#step-4-detailed-configuration-xwhat_you_need">Step 4 - detailed configuration &#8594; $x=what_you_need</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#preamble">Preamble</a>
     </li>
-
-        
-            
-    <li class="toctree-l1 current">
-        <a class="current" href="./">bCNC</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#bcnc-control-your-machine">bCNC: control your machine</a></li>
-                
-                    <li><a class="toctree-l4" href="#step-1-prepare">Step 1 - prepare</a></li>
-                
-                    <li><a class="toctree-l4" href="#step-2-connect-your-machine-to-bcnc">Step 2 - connect your machine to bCNC</a></li>
-                
-                    <li><a class="toctree-l4" href="#step-3-check-configuration-basics">Step 3 - check configuration basics</a></li>
-                
-                    <li><a class="toctree-l4" href="#step-4-detailed-configuration-xwhat_you_need">Step 4 - detailed configuration &#8594; $x=what_you_need</a></li>
-                
-            
-            </ul>
-        
+    <li class="toctree-l3"><a class="reference internal" href="#step-direction-3">Step direction - $3</a>
     </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../mill_1/">Milling part 1</a>
-        
+    <li class="toctree-l3"><a class="reference internal" href="#working-area-130ff">Working area - $130ff</a>
     </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../ext_1/">Freecad - ramp in, finsish pass, holding tags</a>
-        
+    <li class="toctree-l3"><a class="reference internal" href="#acceleration-120ff">Acceleration - $120ff</a>
     </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../freecad_2/">Freecad - prepare for 3D</a>
-        
+    <li class="toctree-l3"><a class="reference internal" href="#max-rate-110ff">Max rate - $110ff</a>
     </li>
-
-        
-    </ul>
-<li>
-          
-            <li>
-    <ul class="subnav">
-    <li><span>Blender</span></li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../blenderMot/">Motivation</a>
-        
+    <li class="toctree-l3"><a class="reference internal" href="#stepsmm-100ff">Steps/mm  - $100ff</a>
     </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../blenderInst/">Installation</a>
-        
+    <li class="toctree-l3"><a class="reference internal" href="#homing-23-ff">Homing - $23 ff</a>
     </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../blenderAirfoils/">Basic python scripting 4 airfoils</a>
-        
-    </li>
-
-        
-    </ul>
-<li>
-          
         </ul>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../mill_1/">Milling part 1</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../ext_1/">Freecad - ramp in, finsish pass, holding tags</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../freecad_2/">Freecad - prepare for 3D</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Blender</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../blenderMot/">Motivation</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../blenderInst/">Installation</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../blenderAirfoils/">Basic python scripting 4 airfoils</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../blenderKissSlope/">KissSlope project</a>
+                    </li>
+                </ul>
       </div>
-      &nbsp;
+    </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
@@ -193,6 +133,7 @@
       
     </li>
   </ul>
+  
   <hr/>
 </div>
           <div role="main">
@@ -201,7 +142,7 @@
                 <h1 id="bcnc-control-your-machine">bCNC: control your machine</h1>
 <p><a href="https://github.com/vlachoudis/bCNC">bCnc</a> - as the authors claim:
 <br>
-<em>GRBL CNC command sender, autoleveler, g-code editor, digitizer, CAM and <strong>swiss army knife</strong> for all your CNC needs.</em><br>
+<em>GRBL CNC command sender, autoleveler, g-code editor, digitizer, CAM and </em><em>swiss army knife</em><em> for all your CNC needs.</em><br>
 This is not exaggeration -  and the bets is: due to being written in python, you can use it under every operating system supporting python!</p>
 <h2 id="step-1-prepare">Step 1 - prepare</h2>
 <ul>
@@ -213,7 +154,6 @@ This is not exaggeration -  and the bets is: due to being written in python, you
 apt-get install python python-tk python-pip
 pip install bcnc
 </code></pre>
-
 <p>On windows follow <a href="https://github.com/BurntSushi/nfldb/wiki/Python-&amp;-pip-Windows-installation">these instructions</a>.</p>
 <h2 id="step-2-connect-your-machine-to-bcnc">Step 2 - connect your machine to bCNC</h2>
 <ul>
@@ -222,7 +162,6 @@ pip install bcnc
 </ul>
 <pre><code>python -m bCNC
 </code></pre>
-
 <ul>
 <li>you should see<br><br>
 <img alt="" src="../assets/images/xbcnc1.png" title="bcnc 1st startup" />
@@ -258,7 +197,6 @@ Your machine is not connected yet. Now:<ul>
         - reconnect
 Please check the follwoing configuration carfully and adapt accordingly!
 </code></pre>
-
 <ul>
 <li>the greeting message also tells us how to unlock the machine:<br>
 <em>$X to unlock</em> - don't do it now!</li>
@@ -268,7 +206,7 @@ in the output pane, we now have all the settings stored on your controller in th
 </ul>
 <h2 id="step-4-detailed-configuration-xwhat_you_need">Step 4 - detailed configuration &#8594; $x=what_you_need</h2>
 <h3 id="preamble">Preamble</h3>
-<p>We are focusing here on the gantry setup having dual motors per axis x (x &amp; xc) and y (y &amp; yc) - <a href="../zoom_1#veryBasics">don't remember? check again here</a>.<br>
+<p>We are focusing here on the gantry setup having dual motors per axis x (x &amp; xc) and y (y &amp; yc) - <a href="zoom_1#veryBasics">don't remember? check again here</a>.<br>
 Default grbl uses only 3 axis and bCNC in his machine settings interface supports only 3 axis &#8594;<strong>ignore CAM&gt;config</strong>. <br>
 <strong>Use the command line</strong> or <strong>CAM&gt;controller</strong> interface to configure your machine settings.</p>
 <p>This is the working configuration (<a href="../assets/files/grblSettings_mpcncDualEndStop_bCNC.txt">available on on my git hub</a>) we will work through in the following.
@@ -279,7 +217,6 @@ although grbl stores the settings in the EEPROM and should apply them immediatel
 I sometimes needed to power off/on the controller for the (correctly reported
 settings - check by $$) have been effective! 
 </code></pre>
-
 <p><img alt="" src="../assets/images/xgrbl5.png" title="bcnc 1st startup" />
 We will go through the most important settings in the following. All settings not explicitly discussed can just be copied over. Have a read in <a href="https://github.com/gnea/grbl/wiki/Grbl-v1.1-Configuration">the grbl docu</a> for detailed information.</p>
 <h3 id="step-direction-3">Step direction - $3</h3>
@@ -297,7 +234,7 @@ Surprisingly, I ended up (4th row) with a quite different setting from what woul
 - in the command prompt enter $X (clears the alarm and should unlock the machine&#8594;Idle)<br>
 If you can't achieve the Idle state, you most probably have an
 end stop related alarm, e.g. [xyzxy], which means you misconfigured
-your pins &#8594;<a href="../zoom_1#endstopBackground">recheck your understanding &amp; config</a> 
+your pins &#8594;<a href="zoom_1#endstopBackground">recheck your understanding &amp; config</a> 
 - set the stepwidth to a small value (as indicated by the red mark)</p>
 <p><img alt="" src="../assets/images/xbcnc5.png" title="bcnc control" /></p>
 <ul>
@@ -318,7 +255,6 @@ $132=125.000 (z max travel, mm)
 $133=911.000 (xcloned max travel, mm)
 $134=571.000 (ycloned max travel, mm)
 </code></pre>
-
 <p>Make sure to have symmetric settings for x/xc and y/yc!</p>
 <p>Are you wondering why I use 911 and 571 instead of 910 and 570?<br>
 This is because the homing debounce distance (which we'll set to 1mm) will be subtracted from these values and I'd like to see the 910 and 570 in the displays later on.</p>
@@ -330,7 +266,6 @@ $122=50.000 (z accel, mm/sec^2)
 $123=50.000 (xcloned accel, mm/sec^2)
 $124=50.000 (ycloned accel, mm/sec^2)
 </code></pre>
-
 <p>Start from these values. You might be able to increase them by a factor of 4 (test it carefully). Remember to have x/xc and y/yc exactly symmetric!</p>
 <h3 id="max-rate-110ff">Max rate - $110ff</h3>
 <p>Not much to say here. Keep x/xc and y/yc symmetric</p>
@@ -340,7 +275,6 @@ $112=800.000 (z max rate, mm/min)
 $113=4500.000 (xcloned max rate, mm/min)
 $114=4500.000 (ycloned max rate, mm/min)
 </code></pre>
-
 <h3 id="stepsmm-100ff">Steps/mm  - $100ff</h3>
 <p>Note: Pablo published quite different settings here. I have the exact setup of the default mpcnc with the lead screw on Z and the T16 timing belts. And came up with these:</p>
 <pre><code>$100=200.000 (x, step/mm)
@@ -349,7 +283,6 @@ $102=800.000 (z, step/mm)
 $103=200.000 (xcloned, step/mm)
 $104=200.000 (ycloned, step/mm)
 </code></pre>
-
 <ul>
 <li>to check these, I insert a needle the 1mm clamp of the spindle, put a metal tape measure along one axis (e.g. x), position the neddle at axis_min, travel a specific length and check what the actual travel lenght was.</li>
 <li>recalculate the steps/mm from this</li>
@@ -367,7 +300,6 @@ $104=200.000 (ycloned, step/mm)
 This behaviour can be configured in config.h l.153 and 154 if
 you'd like to change it. You need to recompile / flash in case you changed it.
 </code></pre>
-
 <p>Next:
 - trigger each end stop manually and see if it gets displayed as intended (I triggered the x end stop for the following screenshot - note the <em>Idle [x]</em> status, not triggering the end stop, the [x] should disappear again)</p>
 <p><img alt="" src="../assets/images/xbcnc6.png" title="bcnc control" /></p>
@@ -415,9 +347,9 @@ Feel free to dicuss your questions in the <a href="https://www.v1engineering.com
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-	  
+      
         </div>
       </div>
 
@@ -425,7 +357,7 @@ Feel free to dicuss your questions in the <a href="https://www.v1engineering.com
 
   </div>
 
-<div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
@@ -436,6 +368,14 @@ Feel free to dicuss your questions in the <a href="https://www.v1engineering.com
       
     </span>
 </div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
 
 </body>
 </html>

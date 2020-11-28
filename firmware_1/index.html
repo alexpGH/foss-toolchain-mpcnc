@@ -8,31 +8,23 @@
   
   
   
-  <title>Controller board, firmware - foss-toolchain-mpcnc</title>
-  
-
   <link rel="shortcut icon" href="../img/favicon.ico">
-
-  
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
-
-  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="../css/highlight.css">
-
+  <title>Controller board, firmware - foss-toolchain-mpcnc</title>
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
   
   <script>
     // Current page data
     var mkdocs_page_name = "Controller board, firmware";
     var mkdocs_page_input_path = "firmware_1.md";
-    var mkdocs_page_url = "/firmware_1/";
+    var mkdocs_page_url = null;
   </script>
   
-  <script src="../js/jquery-2.1.1.min.js"></script>
-  <script src="../js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="../js/highlight.pack.js"></script>
-  <script src="../js/theme.js"></script> 
-
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
 
@@ -42,127 +34,77 @@
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href=".." class="icon icon-home"> foss-toolchain-mpcnc</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-        <ul class="current">
-          
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="..">Home</a>
-        
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Basics</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../freecad_1/">Freecad part 1</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Controller board, firmware</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#a-grbl-on-ramps-default-mpcnc-no-dual-end-stops">A) Grbl on Ramps - default mpcnc (no dual end stops)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#controller-firmware">Controller &amp; firmware</a>
     </li>
-<li>
-          
-            <li>
-    <ul class="subnav">
-    <li><span>Basics</span></li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../freecad_1/">Freecad part 1</a>
-        
+    <li class="toctree-l3"><a class="reference internal" href="#front-end">Front-end</a>
     </li>
-
-        
-            
-    <li class="toctree-l1 current">
-        <a class="current" href="./">Controller board, firmware</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#controller-firmware-options">Controller &amp; firmware options</a></li>
-                
-                    <li><a class="toctree-l4" href="#a-grbl-on-ramps-default-mpcnc-no-dual-end-stops">A) Grbl on Ramps - default mpcnc (no dual end stops)</a></li>
-                
-                    <li><a class="toctree-l4" href="#b-grbl-on-ramps-dual-end-stop-auto-squaring">B) Grbl on Ramps – dual-end-stop, auto-squaring</a></li>
-                
-                    <li><a class="toctree-l4" href="#c-general-solution-marlin-mpcnc-post-in-freecad">C) General solution Marlin-mpcnc post in FreeCad</a></li>
-                
-            
-            </ul>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../zoom_1/">ZOOM grbl+RAMPS+auto squaring</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../bcnc_1/">bCNC</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../mill_1/">Milling part 1</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../ext_1/">Freecad - ramp in, finsish pass, holding tags</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../freecad_2/">Freecad - prepare for 3D</a>
-        
-    </li>
-
-        
-    </ul>
-<li>
-          
-            <li>
-    <ul class="subnav">
-    <li><span>Blender</span></li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../blenderMot/">Motivation</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../blenderInst/">Installation</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../blenderAirfoils/">Basic python scripting 4 airfoils</a>
-        
-    </li>
-
-        
-    </ul>
-<li>
-          
         </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#b-grbl-on-ramps-dual-end-stop-auto-squaring">B) Grbl on Ramps – dual-end-stop, auto-squaring</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#controller-firmware_1">Controller &amp; firmware</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#front-end_1">Front-end</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#c-general-solution-marlin-mpcnc-post-in-freecad">C) General solution Marlin-mpcnc post in FreeCad</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#controller-firmware_2">Controller &amp; firmware</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#front-end_2">Front-end</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../zoom_1/">ZOOM grbl+RAMPS+auto squaring</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../bcnc_1/">bCNC</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../mill_1/">Milling part 1</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../ext_1/">Freecad - ramp in, finsish pass, holding tags</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../freecad_2/">Freecad - prepare for 3D</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Blender</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../blenderMot/">Motivation</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../blenderInst/">Installation</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../blenderAirfoils/">Basic python scripting 4 airfoils</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../blenderKissSlope/">KissSlope project</a>
+                    </li>
+                </ul>
       </div>
-      &nbsp;
+    </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
@@ -191,6 +133,7 @@
       
     </li>
   </ul>
+  
   <hr/>
 </div>
           <div role="main">
@@ -206,15 +149,15 @@
 <p>I followed the instructions there (downloaded the newest version from the <em>1.Download this repository</em> link pointing to the github of carlos. Compiled in arduino IDE (<a href="https://www.v1engineering.com/marlin-firmware/">as usual - see the section flash firmware</a>) and flashed. I could not test it as I have the dual end-stop setup and don’t want to screw up my machine.
 I have read of people using it successfully. <em>Perhaps someone could confirm this, then we could mark this here as confirmed.</em></p>
 <h3 id="front-end">Front-end</h3>
-<p>For boards running gbrl <a href="../bcnc_1">bCnC</a> is a great solution, as it runs on python and therefore should be available on many platforms.</p>
+<p>For boards running gbrl <a href="bcnc_1">bCnC</a> is a great solution, as it runs on python and therefore should be available on many platforms.</p>
 <h2 id="b-grbl-on-ramps-dual-end-stop-auto-squaring">B) Grbl on Ramps – dual-end-stop, auto-squaring</h2>
 <h3 id="controller-firmware_1">Controller &amp; firmware</h3>
 <p><a href="https://www.v1engineering.com/members/enducross/">@Pablo</a> did great work <a href="https://www.v1engineering.com/forum/topic/grbl-running-on-ramps/">documented here</a> to get it up and running, based on <a href="https://github.com/fra589/grbl-Mega-5X">grbl-Mega-5X</a>.</p>
 <p>One or two end-stops per axis, NO or NC mode, all discussed in the linked thread!
-See also the detailed tutorial <a href="../zoom_1.html">ZOOM on option B)</a>.</p>
+See also the detailed tutorial <a href="../zoom_1">ZOOM on option B)</a>.</p>
 <p>The <a href="https://www.v1engineering.com/forum/topic/grbl-running-on-ramps/#post-78315">‘main’ post</a> with the download link to the current version.</p>
 <h3 id="front-end_1">Front-end</h3>
-<p><a href="../bcnc_1">bCnC</a></p>
+<p><a href="bcnc_1">bCnC</a></p>
 <h2 id="c-general-solution-marlin-mpcnc-post-in-freecad">C) General solution Marlin-mpcnc post in FreeCad</h2>
 <p><strong>Not yet</strong> (I need to test it): provide an path: output: mpcnc-marlin option in FreeCad. Looks doable to me.
 If you want to get this going, see and support <a href="https://www.v1engineering.com/forum/topic/foss-marlin-pp-for-the-good-what-do-you-think/">this</a></p>
@@ -253,9 +196,9 @@ Feel free to dicuss your questions in the <a href="https://www.v1engineering.com
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-	  
+      
         </div>
       </div>
 
@@ -263,7 +206,7 @@ Feel free to dicuss your questions in the <a href="https://www.v1engineering.com
 
   </div>
 
-<div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
@@ -274,6 +217,14 @@ Feel free to dicuss your questions in the <a href="https://www.v1engineering.com
       
     </span>
 </div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
 
 </body>
 </html>

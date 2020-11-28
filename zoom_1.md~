@@ -1,6 +1,5 @@
-# ZOOM: controller & firmware option B):<br>grbl on Ramps – dual-end-stop, auto-squaring <br>**_detailed walk through_**
-
-[&larr;](index.html "back")
+# Spotlight on
+Controller & firmware option B):<br>grbl on Ramps – dual-end-stop, auto-squaring <br>**_detailed walk through_**
 
 ## Step1 – get the firmware
 
@@ -83,11 +82,9 @@ This is done as usual as described by [Ryan: how to flash firmware](https://www.
 
 Thats it.
 After power of/on for the controller board, you should now have a mpcnc with all motors active.
-Go on to the [bCNC](bcnc_1.html) tutorial.
+Go on to the [bCNC](bcnc_1) tutorial.
 
 
 <br>
 Feel free to dicuss your questions in the [related discussion thread](https://www.v1engineering.com/forum/topic/foss-milling-toolchain-freecad-gbrl-on-ramps-discussion/) 
 
-
-[&larr;](index.html "back")
