@@ -18,8 +18,11 @@ I’m no expert in all of this. Try at your own risk!
 |2| [Controller board, firmware](firmware_1)  | Controller board & firmware options |
 |3| [ZOOM: controller & firmware option B) ](zoom_1) | grbl on ramps for dual end stop based auto squaring |
 |4| [bCnC](bcnc_1) | Get, configure and get started with [bCNC](https://github.com/vlachoudis/bCNC) |
-|5| [Milling part 1](mill_1) <span style="color:red">**NEW**</span>| Milling the part from tutorial 1|
-|6| [Freecad part 1+](ext_1) <span style="color:red">**NEW**</span>| Configuring to sensible settings, adding finish pass and holding tags| 
+|5| [Milling part 1](mill_1) | Milling the part from tutorial 1|
+|6| [Freecad part 1+](ext_1) | Configuring to sensible settings, adding finish pass and holding tags| 
+
+[//]: # (<span style="color:red">**NEW**</span>)
+
 
 ## Motivation
 I really like open source stuff, and I’m quite impressed by [Ryan](https://www.v1engineering.com/members/vicious1/) & folks. I have build my own mpcnc and want to contribute my part to the [V1 universe](https://www.v1engineering.com/).

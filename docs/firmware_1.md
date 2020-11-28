@@ -23,7 +23,7 @@ For boards running gbrl [bCnC](bcnc_1) is a great solution, as it runs on python
 [@Pablo](https://www.v1engineering.com/members/enducross/) did great work [documented here](https://www.v1engineering.com/forum/topic/grbl-running-on-ramps/) to get it up and running, based on [grbl-Mega-5X](https://github.com/fra589/grbl-Mega-5X).
 
 One or two end-stops per axis, NO or NC mode, all discussed in the linked thread!
-See also the detailed tutorial [ZOOM on option B)](zoom_1.html).
+See also the detailed tutorial [ZOOM on option B)](../zoom_1).
 
 The [‘main’ post](https://www.v1engineering.com/forum/topic/grbl-running-on-ramps/#post-78315) with the download link to the current version.
 

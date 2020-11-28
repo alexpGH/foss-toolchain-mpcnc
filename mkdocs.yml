@@ -11,6 +11,9 @@ pages:
   - Freecad - prepare for 3D: 'freecad_2.md'
 - Blender:
   - Motivation: blenderMot.md
+  - Installation: blenderInst.md
+  - Basic python scripting 4 airfoils: blenderAirfoils.md 
+  - KissSlope project: blenderKissSlope.md
 
 theme: readthedocs
 #theme: rtd-dropdown

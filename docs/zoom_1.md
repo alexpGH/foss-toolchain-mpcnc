@@ -40,7 +40,7 @@ The mpcnc default for end stops however is (and I think this is sensible, [see R
 
 **End stop configuration - $5 not working as intended &#8623;**
 <br>
-We normally would use grbl's configuration command  $5=1, which inverts ALL limit pins and could be adapted in the frontend, ess e.g. [bCNC](bcnc_1.html) settings.
+We normally would use grbl's configuration command  $5=1, which inverts ALL limit pins and could be adapted in the frontend, ess e.g. [bCNC](../bcnc_1) settings.
 <br>
 Unfortunately this does *NOT* work (I tried it and alarms I could not get rid of).
 
@@ -82,7 +82,7 @@ This is done as usual as described by [Ryan: how to flash firmware](https://www.
 
 Thats it.
 After power of/on for the controller board, you should now have a mpcnc with all motors active.
-Go on to the [bCNC](bcnc_1) tutorial.
+Go on to the [bCNC](../bcnc_1) tutorial.
 
 
 <br>
