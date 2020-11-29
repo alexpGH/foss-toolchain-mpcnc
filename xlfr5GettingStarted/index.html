@@ -9,15 +9,15 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>KissSlope project - foss-toolchain-mpcnc</title>
+  <title>Getting started - foss-toolchain-mpcnc</title>
   <link rel="stylesheet" href="../css/theme.css" />
   <link rel="stylesheet" href="../css/theme_extra.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
   
   <script>
     // Current page data
-    var mkdocs_page_name = "KissSlope project";
-    var mkdocs_page_input_path = "blenderKissSlope.md";
+    var mkdocs_page_name = "Getting started";
+    var mkdocs_page_input_path = "xlfr5GettingStarted.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -67,23 +67,27 @@
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">Blender</span></p>
-                <ul class="current">
+                <ul>
                     <li class="toctree-l1"><a class="reference internal" href="../blenderMot/">Motivation</a>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../blenderInst/">Installation</a>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../blenderAirfoils/">Basic python scripting 4 airfoils</a>
                     </li>
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">KissSlope project</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#wing-outline">Wing outline</a>
-    </li>
-    </ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../blenderKissSlope/">KissSlope project</a>
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">XLFR5</span></p>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../xlfr5GettingStarted/">Getting started</a>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Getting started</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#export-profile-data-from-blender">Export profile data from blender</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#tutorial-notes">Tutorial notes</a>
+    </li>
+    </ul>
                     </li>
                 </ul>
       </div>
@@ -107,11 +111,11 @@
     
       
         
-          <li>Blender &raquo;</li>
+          <li>XLFR5 &raquo;</li>
         
       
     
-    <li>KissSlope project</li>
+    <li>Getting started</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -122,17 +126,52 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="what-is-this">What is this</h1>
-<p>This are some early thoughts and design for a simple to build (easy to replace) sailplane for slope soaring. With simple to build I mean simple when you have access to a cnc milling machine for milling foam.</p>
-<h2 id="wing-outline">Wing outline</h2>
-<p>The outline should be based on the elliptic planar wing basis. Having access to cnc milling, the straight outlines of the Swift or Kobutz are not required.
-<br>We can make use of more organic-like and more efficient (regarding induced drag) shapes like the stingray. You have some spare time? Read <a href="https://journals.sfu.ca/ts/index.php/ts/article/download/524/495">Epplers great paper on induced drag and winglets</a>.</p>
-<p><strong>How do we achieve this?</strong>
-<br>First, we import an image of the said geometry in blender. I used the outline provided at <a href="https://www.rc-network.de/threads/stingray-profilfrage.173616/">Rc-Network</a> and, as an alternative with a more elliptic shape, also the modster flash, which is also sold as lightning V2.  </p>
-<p>Import the image: add &gt; Image &gt; as background and place &amp; scale it.</p>
-<p>In the scripting workspace, <em>kissSlopeWing1.py</em> should be open. In there, I have the configuration for a more modster-like layout and one with less backwards sweep similar to the stingray.</p>
-<p><img alt="" src="../assets/images/outlines1.png" title="my kitefoil set-up" /></p>
-<p>I personally prefer the upper one (for aesthetic reasons).</p>
+                <h1 id="xlfr5">XLFR5</h1>
+<h2 id="installation">Installation</h2>
+<p>I build the main repo of André (the author of xflr5, aka <em>techwinder</em>).
+In case of problems you can also try to build the <a href="https://github.com/polmes/xflr5-ubuntu">ubuntu specific patched version</a>.</p>
+<pre><code>svn checkout https://svn.code.sf.net/p/xflr5/code/trunk xflr5-code
+</code></pre>
+<p>Install prerequisites</p>
+<pre><code>apt-get install build-essential mesa-common-dev mesa-utils libgl1-mesa-dev libglu1-mesa-dev qt5-qmake libqt5opengl5-dev
+</code></pre>
+<p>Building
+<br>Note: I initially had an error:</p>
+<blockquote>
+<p>cd xflr5-engine/ &amp;&amp; ( test -e Makefile || /usr/lib/qt5/bin/qmake -o Makefile /home/alexp/wicht_soft/xflr5-code/xflr5/xflr5-engine/xflr5-engine.pro ) &amp;&amp; make -f Makefile 
+Project ERROR: Unknown module(s) in QT: core gui
+make: *** [Makefile:49: sub-xflr5-engine-make_first] Error 3</p>
+</blockquote>
+<p>Seems to have been fixed by installing libqt5opengl5-dev</p>
+<pre><code>cd xflr5-code/xflr5
+qmake
+make
+sudo make install
+sudo ldconfig
+</code></pre>
+<p>Finally, start xlfr5</p>
+<pre><code>xlfr5
+</code></pre>
+<p><br></p>
+<h2 id="export-profile-data-from-blender">Export profile data from blender</h2>
+<p>Have a look at the block <em>'export 4 xlfr5'</em> in the helper file <em>planes/kissSlope/howtoAddMH30.py</em> discussed <a href="../blenderAirfoils/#adding-a-new-2d-profile">here</a>:</p>
+<pre><code>    coords=mh30modpk.coords('super',1.0,[0.0,0.0,0.0])
+    filename=bpy.path.abspath(&quot;//MH30pk_xlfr5.dat&quot;)
+    wingLib.foilExport(coords,'MH30pk',filename,'xlfr54spaces')
+</code></pre>
+<p>allows you to export the desired quality in XLFR5 format.</p>
+<p><br></p>
+<h2 id="tutorial-notes">Tutorial notes</h2>
+<p>I followed the <a href="https://www.youtube.com/watch?v=U7saOcozpi8&amp;list=PLtl5ylS6jdP6uOxzSJKPnUsvMbkmalfKg">tutorial series</a> of André (the developer of xlfr5 aka techwinder). The following notes are only meant as comments to the tutorials.</p>
+<p><strong>Panel/points display (T1: 1:20)</strong>
+<br>right click the foil, 1st entry <em>current foil</em> &gt; set style&gt; set the style for points to points</p>
+<p><strong>Refine loaded / new designed foil (T1: 1:30)</strong>
+<br>always: design&gt;refine globally to 100-150 panels</p>
+<p><strong>Design type1 for foils (T1: 3:55)</strong>
+<br>Type1 for foils, type 2 and 4 for planes</p>
+<div class="arithmatex">\[
+\operatorname{ker} f=\{g\in G:f(g)=e_{H}\}{\mbox{.}}
+\]</div>
               
             </div>
           </div>
@@ -140,10 +179,8 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../xlfr5GettingStarted/" class="btn btn-neutral float-right" title="Getting started">Next <span class="icon icon-circle-arrow-right"></span></a>
       
-      
-        <a href="../blenderAirfoils/" class="btn btn-neutral" title="Basic python scripting 4 airfoils"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../blenderKissSlope/" class="btn btn-neutral" title="KissSlope project"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -169,10 +206,8 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../blenderAirfoils/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../blenderKissSlope/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
-      
-        <span style="margin-left: 15px"><a href="../xlfr5GettingStarted/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
