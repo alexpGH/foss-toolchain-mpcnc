@@ -83,9 +83,14 @@
                     <li class="toctree-l1"><a class="reference internal" href="../blenderKissSlope/">KissSlope project</a>
                     </li>
                 </ul>
-                <p class="caption"><span class="caption-text">XLFR5</span></p>
+                <p class="caption"><span class="caption-text">XFLR5</span></p>
                 <ul>
                     <li class="toctree-l1"><a class="reference internal" href="../xlfr5GettingStarted/">Getting started</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Basic aerodynamics</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../aeroEqn/">Basic equations</a>
                     </li>
                 </ul>
       </div>
@@ -127,7 +132,18 @@
                 <h1 id="installation">Installation</h1>
 <h2 id="blender">Blender</h2>
 <p>I currently use <a href="https://www.blender.org/download/">blender</a>'s long term support version 2.83.9 (on linux) spcifically the tgz download, unpack and therein start blender. This allows me to use different versions in parallel (just in case).</p>
-<p>For the curve simplification check to have edit&gt;preferences&gt;add-ons&gt; Add curve: simplfy curves+ activated</p>
+<p><strong>Add-ons</strong>
+<br>For the curve simplification check to have edit&gt;preferences&gt;add-ons&gt; Add curve: simplfy curves+ activated</p>
+<p><strong>Python modules</strong>
+<br>Blender comes with a bundled python in whereYouUnpacked/blender-2.91.0-linux64/2.91/python/bin</p>
+<p>First check to have an up to date pip3 in the bin dir:</p>
+<pre><code>cd whereYouUnpacked/blender-2.91.0-linux64/2.91/python/bin
+./python3.7m -m ensurepip
+./python3.7m -m pip install -U pip
+</code></pre>
+<p>Now you can install python modules</p>
+<pre><code>./pip3 install matplotlib
+</code></pre>
 <h2 id="blendercam">BlenderCam</h2>
 <p>In order to be able to use <a href="https://github.com/vilemduha/blendercam">blendercam</a> follow the <a href="https://github.com/vilemduha/blendercam/wiki">documentation</a>.
 I might later on add some notes here, but for now concentrate on the scripting part for wing design.</p>

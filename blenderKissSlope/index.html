@@ -78,12 +78,25 @@
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#wing-outline">Wing outline</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#wing-loading-and-re">Wing loading and Re</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#surface-area">Surface area</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#weight-velocity-an-re">Weight, velocity an Re</a>
+    </li>
+        </ul>
+    </li>
     </ul>
                     </li>
                 </ul>
-                <p class="caption"><span class="caption-text">XLFR5</span></p>
+                <p class="caption"><span class="caption-text">XFLR5</span></p>
                 <ul>
                     <li class="toctree-l1"><a class="reference internal" href="../xlfr5GettingStarted/">Getting started</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Basic aerodynamics</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../aeroEqn/">Basic equations</a>
                     </li>
                 </ul>
       </div>
@@ -133,6 +146,53 @@
 <p>In the scripting workspace, <em>kissSlopeWing1.py</em> should be open. In there, I have the configuration for a more modster-like layout and one with less backwards sweep similar to the stingray.</p>
 <p><img alt="" src="../assets/images/outlines1.png" title="my kitefoil set-up" /></p>
 <p>I personally prefer the upper one (for aesthetic reasons).</p>
+<h2 id="wing-loading-and-re">Wing loading and Re</h2>
+<h3 id="surface-area">Surface area</h3>
+<p>For designing the 2d profiles along the wing span (strak, loft), we need to determine the wing loading, and the Reynolds number.</p>
+<p>First, we get the (projected) surface in <strong>blender</strong>:
+<br>Edit&gt;preference&gt;add-ons&gt;Mesh: 3d print toolbox - check to have the add-on activated</p>
+<p>We could now select the wing, hit <strong>N</strong> to pop up th info display (to the right). and select the 4th option (in the right-most menue - tilted by 90°) called <em>3D Print</em>, the hit <em>Area</em>.
+<br>This gives us the surface area of the wing: 5191.8cm²</p>
+<p><img alt="" src="../assets/images/kiss1.png" title="" /></p>
+<p>But <span style="color:red"><strong>wait!</strong></span> this is the total surface, not the 2D projected which we need for equation <a href="../aeroEqn/#mjx-eqn-eq:liftForce1">basics (1)</a>.
+<br>To estimat the 2D projected surface:</p>
+<ul>
+<li>add a cube ob 2m x 1m x 0.0001m and place it at 0/0/0 (it intersects the wing through trailing and leading edge)</li>
+<li>copy the wing</li>
+<li>select the copied wing (myWing1.001 in my case) in object mode</li>
+<li>select the wrench</li>
+<li>select add modifier: boolean</li>
+<li>set to insersect with the plane
+<img alt="" src="../assets/images/kiss2.png" title="" /></li>
+<li>important: apply the modifier; this since 2.8x this is somewhat hidden: hit the triangel right to the camera and select apply (otherwize you will not see the correct mesh in the next step)</li>
+<li>hide myWing1 and Cube</li>
+<li>enter edit mode for myWing1.001
+<img alt="" src="../assets/images/kiss3.png" title="" /></li>
+</ul>
+<p>You should see a quite flat mesh (not curved like in the original wing). The 3d Print aera now gives us 5128.7cm².
+The projected area is <span class="arithmatex">\(\frac{1}{2}\cdot 5128.7cm²=\textbf{0.2564m²}\)</span>
+<Br><span style="color:red"><strong>Note:</strong></span> this approach will not work when intersecting with a plane (don't ask me why). Therefore, I use a thin cube.</p>
+<h3 id="weight-velocity-an-re">Weight, velocity an Re</h3>
+<p>I currently estimate the total weight to 1000g (actually 800g, but we need to estimate with a bit of safety margin).</p>
+<p>Togehter with the surface area we can now determine <span class="arithmatex">\(v\)</span> from <a href="../aeroEqn/#mjx-eqn-eq:velocityFromMass">basics (2)</a>, if we make use of the <span style="color:red">hypothesis</span> <span class="arithmatex">\(c_{L}\approx 1.0\)</span>. We will cross-check this later!</p>
+<p><span class="arithmatex">\(v_{min}=\sqrt{\frac{2\cdot 1kg\cdot 9.81 m/s²}{1.1673kg/m³\cdot 1.0 \cdot 0.2564m²}}=8.1 m/s\)</span></p>
+<p>Inserting in <a href="../aeroEqn/#mjx-eqn-eq:reynolds">basics (3)</a> allows us to plot the Reynolds number over span: 
+<img alt="" src="../assets/images/Fig_ReSpan.png" title="" /></p>
+<p>Using xflr5 for analysis <a href="../xlfr5GettingStarted/#tutorial-notes">T1: 6:45</a> allows us to check our <span style="color:red">hypothesis</span> <span class="arithmatex">\(c_{L}\approx 1.0\)</span> from above:</p>
+<p><a href="../assets/images/xfl_1.png"><img alt="" src="../assets/images/xfl_1.png" title="" /></a></p>
+<p>See the Cl/ALPHA plot (upper mid): for <span class="arithmatex">\(Re&gt;40.000\)</span> corrsponding to <span class="arithmatex">\(\sim 93\%\)</span> of the wing span, <span class="arithmatex">\(c_{l}&gt;1.0\)</span> (note that we use a small index here, as it is a local variable - for the given location).</p>
+<p>The inner region (with larger chord) even provides us a safety margin, compensating the decreasing lift at the outer sections of the wing. And this is still the <em>plain vanilla</em> MH30_pk profile!</p>
+<p><strong>Resume:</strong> For a plane lighther than 1kg, faster than 8.1m/s, our hypothesis <span class="arithmatex">\(c_{L}\not\lt 1.0\)</span> therefore holds with safety margin, which means we can maintain height.
+<br><br><span style="color:red"><strong>But:</strong></span> Regarding <em>stability</em> we would require that flow seperation and hence drop of <span class="arithmatex">\(c_{l}\)</span> should begin at the inner part of the wing (close to the fuselage) and not from the wingtips.
+<br>Why?
+<br>In the first case, the result will be a plane loosing height (sagging) but still being controllable.
+<br>In the second case, <em>loosing lift force suddenly at the outer wing region will result in the plane rolling</em> to that side. Steering against the roll (aileron down, corresponds to an increased angle of attack) makes the situation even worse, because an even larger region is pushed beyond the maximal possible angle of attack <span class="arithmatex">\(\alpha_{attackMax}\)</span>, the angle where breakdown of lift occurs.
+<br><br>Having a look at the <span class="arithmatex">\(c_{l}\)</span>/APLHA plot shows that (for a given profile) the maximum lift gets lower at an ever smaller angle of attack with decresing Reynolds number. Therefore, without taking means against, this leads to break down of lift starting at the wing tips (because we have smalle <span class="arithmatex">\(Re\)</span> there).</p>
+<p>Means are</p>
+<ul>
+<li>Geometrically decreasig the angle of attack towards wing tips (<a href="https://en.wikipedia.org/wiki/Washout_(aeronautics)">twist / washout</a>), which is inefficient (as the drag increases).</li>
+<li>A better alternative are aerodynamic means: designing and using a profile with adequate <span class="arithmatex">\(c_{l} / c_{d}\)</span> for the outer wing region,</li>
+</ul>
               
             </div>
           </div>

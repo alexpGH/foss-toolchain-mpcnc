@@ -1,10 +1,9 @@
 window.MathJax = {
-    tex: {
-	tags: 'ams',
+  tex: {
     inlineMath: [["\\(", "\\)"]],
     displayMath: [["\\[", "\\]"]],
     processEscapes: true,
-      processEnvironments: true
+    processEnvironments: true
   },
   options: {
     ignoreHtmlClass: ".*|",
