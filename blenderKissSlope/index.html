@@ -82,7 +82,9 @@
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#surface-area">Surface area</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#weight-velocity-an-re">Weight, velocity an Re</a>
+    <li class="toctree-l3"><a class="reference internal" href="#weight-minimal-velocity-an-re">Weight, minimal velocity an Re</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#re-at-normal-speed-flight">Re at normal &amp; speed flight</a>
     </li>
         </ul>
     </li>
@@ -172,17 +174,20 @@
 <p>You should see a quite flat mesh (not curved like in the original wing). The 3d Print aera now gives us 5128.7cm².
 The projected area is <span class="arithmatex">\(\frac{1}{2}\cdot 5128.7cm²=\textbf{0.2564m²}\)</span>
 <Br><span style="color:red"><strong>Note:</strong></span> this approach will not work when intersecting with a plane (don't ask me why). Therefore, I use a thin cube.</p>
-<h3 id="weight-velocity-an-re">Weight, velocity an Re</h3>
-<p>I currently estimate the total weight to 1000g (actually 800g, but we need to estimate with a bit of safety margin).</p>
+<h3 id="weight-minimal-velocity-an-re">Weight, minimal velocity an Re</h3>
+<p>I currently estimate the total weight to 900g and 1300g including some extra ballast (actually 800g, but we need to estimate with a bit of safety margin).</p>
 <p>Togehter with the surface area we can now determine <span class="arithmatex">\(v\)</span> from <a href="../aeroEqn/#mjx-eqn-eq:velocityFromMass">basics (2)</a>, if we make use of the <span style="color:red">hypothesis</span> <span class="arithmatex">\(c_{L}\approx 1.0\)</span>. We will cross-check this later!</p>
-<p><span class="arithmatex">\(v_{min}=\sqrt{\frac{2\cdot 1kg\cdot 9.81 m/s²}{1.1673kg/m³\cdot 1.0 \cdot 0.2564m²}}=8.1 m/s\)</span></p>
+<p><span class="arithmatex">\(v_{min900g}=\sqrt{\frac{2\cdot 0.9kg\cdot 9.81 m/s²}{1.1673kg/m³\cdot 1.0 \cdot 0.2564m²}}=7.68 m/s\)</span></p>
+<p><span class="arithmatex">\(v_{min1300g}=\sqrt{\frac{2\cdot 1.3kg\cdot 9.81 m/s²}{1.1673kg/m³\cdot 1.0 \cdot 0.2564m²}}=9.23 m/s\)</span></p>
 <p>Inserting in <a href="../aeroEqn/#mjx-eqn-eq:reynolds">basics (3)</a> allows us to plot the Reynolds number over span: 
-<img alt="" src="../assets/images/Fig_ReSpan.png" title="" /></p>
+<img alt="" src="../assets/images/Fig_ReSpan.png" title="" />
+<br>for <span style="color:orange">1300g</span> and <span style="color:blue">900g</span></p>
 <p>Using xflr5 for analysis <a href="../xlfr5GettingStarted/#tutorial-notes">T1: 6:45</a> allows us to check our <span style="color:red">hypothesis</span> <span class="arithmatex">\(c_{L}\approx 1.0\)</span> from above:</p>
-<p><a href="../assets/images/xfl_1.png"><img alt="" src="../assets/images/xfl_1.png" title="" /></a></p>
-<p>See the Cl/ALPHA plot (upper mid): for <span class="arithmatex">\(Re&gt;40.000\)</span> corrsponding to <span class="arithmatex">\(\sim 93\%\)</span> of the wing span, <span class="arithmatex">\(c_{l}&gt;1.0\)</span> (note that we use a small index here, as it is a local variable - for the given location).</p>
+<p><a href="../assets/images/xfl_1.png"><img alt="" src="../assets/images/xfl_1.png" title="" /></a>
+<br>Click the image to enlarge.
+<br>See the Cl/ALPHA plot (upper mid): for <span class="arithmatex">\(Re&gt;40.000\)</span> corrsponding to <span class="arithmatex">\(\sim 93\%\)</span> of the wing span, <span class="arithmatex">\(c_{l}&gt;1.0\)</span> (note that we use a small index here, as it is a local variable - for the given location).</p>
 <p>The inner region (with larger chord) even provides us a safety margin, compensating the decreasing lift at the outer sections of the wing. And this is still the <em>plain vanilla</em> MH30_pk profile!</p>
-<p><strong>Resume:</strong> For a plane lighther than 1kg, faster than 8.1m/s, our hypothesis <span class="arithmatex">\(c_{L}\not\lt 1.0\)</span> therefore holds with safety margin, which means we can maintain height.
+<p><strong>Resume:</strong> For a plane lighther than 900g, faster than 7.68m/s (lighter than 1300g, faster than 9.23m/s), our hypothesis <span class="arithmatex">\(c_{L}\not\lt 1.0\)</span> therefore holds with safety margin, which means we can maintain height.
 <br><br><span style="color:red"><strong>But:</strong></span> Regarding <em>stability</em> we would require that flow seperation and hence drop of <span class="arithmatex">\(c_{l}\)</span> should begin at the inner part of the wing (close to the fuselage) and not from the wingtips.
 <br>Why?
 <br>In the first case, the result will be a plane loosing height (sagging) but still being controllable.
@@ -193,6 +198,10 @@ The projected area is <span class="arithmatex">\(\frac{1}{2}\cdot 5128.7cm²=\te
 <li>Geometrically decreasig the angle of attack towards wing tips (<a href="https://en.wikipedia.org/wiki/Washout_(aeronautics)">twist / washout</a>), which is inefficient (as the drag increases).</li>
 <li>A better alternative are aerodynamic means: designing and using a profile with adequate <span class="arithmatex">\(c_{l} / c_{d}\)</span> for the outer wing region,</li>
 </ul>
+<h3 id="re-at-normal-speed-flight">Re at normal &amp; speed flight</h3>
+<p>The considerations above are important for slow flight &amp; high lift situations (thermal climbing, landing, tack).
+<br>However, at normal flight in good conditions, the Re will be much larger. In these situations, it is important to have low <span class="arithmatex">\(c_D\)</span>. To get an impression, I plot Re(span) for slow, medium and high speed normal flight:
+<img alt="" src="../assets/images/Fig_ReSpan_fast.png" title="" /></p>
               
             </div>
           </div>
