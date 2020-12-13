@@ -2,7 +2,7 @@
 
 I collect here some basic equatin wich we need e.g. for airfoil dimensioning.
 
-Total lift force
+###Total lift force
 
 $$
 \begin{equation}
@@ -19,6 +19,7 @@ with
 
 We use large letters as indices, e.g. $F_{L}$ and $c_{L}$ to indicate total (integrated over the whole wing) values in contrast to *local* values (e.g. given for a wing section).
 
+###Stall velocity
 We regularly need to determine the lowest velocity, a plane can be flown without loosing height. Therefore, we resolve $\eqref{eq:liftForce1}$ for $v$:
 
 $$
@@ -29,7 +30,7 @@ $$
 
 
 
-Reynolds number:
+###Reynolds number
 
 $$
 \begin{equation}
@@ -40,6 +41,31 @@ $$
 with
 <br>$\mu$: dynamic viscosity
 <br>$\nu$: kinematic viscosity of air (we typ. use 1.52 E-05 m²/s at 500m)
+
+###ResqrtCl
+Solving $\eqref{eq:reynolds}$ for $v$, insertion in $\eqref{eq:liftForce1}$ and grouping the terms gives:
+
+$$
+\begin{equation}
+\underbrace{F_{L}=m_{plane\cdot g}}_{const_1} =\underbrace{\frac{1}{2}\rho \frac{\nu^2\cdot S}{ch^2}}_{const!} \cdot  \underbrace{Re^2\cdot C_{L}}_{\Rightarrow const} \label{eq:resqrtcl1}
+\end{equation} 
+$$
+
+First, we note that, in horicontal flight, the lift force needs to be constant ($const_1$). For higher velocities $v$ we require less $C_l$ and vice versa. All the values aggregated as $const!$ are definitely constant. From this follows that $Re^2\cdot C_{L}$ needs to be constant, too. Hence: 
+
+$$
+\begin{equation}
+Re\cdot\sqrt{C_{L}}=const \mid_{horicontal\ flight} \label{eq:resqrtcl2}
+\end{equation} 
+$$
+
+Note: at a given wing section we have local values (small indices)
+
+$$
+\begin{equation}
+Re\cdot\sqrt{C_{l}}=const \mid_{@wing\ section,\ horicontal\ flight} \label{eq:resqrtcl3}
+\end{equation} 
+$$
 
 
 [//]: # (What the f $\eqref{eq:sample}$ does it work?)

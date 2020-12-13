@@ -54,9 +54,9 @@ The projected area is $\frac{1}{2}\cdot 5128.7cm²=\textbf{0.2564m²}$
 
 ### Weight, minimal velocity an Re
 
-I currently estimate the total weight to 900g and 1300g including some extra ballast (actually 800g, but we need to estimate with a bit of safety margin).
+I currently estimate the total weight to 900g and 1300g including some extra ballast (actually 800g, but we need to estimate with a bit of safety margin). For the suface area determined above, this gives a wing loading of 35g/dm² and 51g/dm², respectively.
 
-Togehter with the surface area we can now determine $v$ from [basics (2)](../aeroEqn/#mjx-eqn-eq:velocityFromMass), if we make use of the <span style="color:red">hypothesis</span> $c_{L}\approx 1.0$. We will cross-check this later!
+We can now determine $v$ from [basics (2)](../aeroEqn/#mjx-eqn-eq:velocityFromMass), if we make use of the <span style="color:red">hypothesis</span> $c_{L}\approx 1.0$. We will cross-check this later!
 
 $v_{min900g}=\sqrt{\frac{2\cdot 0.9kg\cdot 9.81 m/s²}{1.1673kg/m³\cdot 1.0 \cdot 0.2564m²}}=7.68 m/s$
 
@@ -91,3 +91,53 @@ Means are
 The considerations above are important for slow flight & high lift situations (thermal climbing, landing, tack).
 <br>However, at normal flight in good conditions, the Re will be much larger. In these situations, it is important to have low $c_D$. To get an impression, I plot Re(span) for slow, medium and high speed normal flight:
 ![](./assets/images/Fig_ReSpan_fast.png "")
+
+
+## Profiles: preselection
+
+### Basic considerations
+There are a plethora of different profiles out there for different purposes. You can find detailed discussions and spend hours reading. **I won't go into depth here** (others have done this; for german readers see e.g. the great work of [Hartmut Siegmann](https://www.aerodesign.de/profile/profile_n.htm); if you know a comparable site in english, please let me know), **but will only document some steps and considerations I have taken**. If you identify mistakes, please let me know!
+
+
+**First step: collect design ResqrtCl's (actually $Re\sqrt{C_l}$).**
+
+Why? See [ResqrtCl derivation](../aeroEqn/#mjx-eqn-eq:resqrtcl3). At a given wing section (fixed chordlength $ch$), at horicontal flight, this is a constant number. In other words: if *we know the weight* of the plane and *require horicontal flight*, this *determines the flight conditions* ($\alpha$, $Cl$, $Re$).
+<br>This allows us to study e.g. $C_l/C_d$ over the flight states (and e.g. plot it over the resulting $\alpha$).  
+
+As discussed above, the <span style="color:red">hypothesis</span> of $C_l\approx1.0$ at $v_{min}$ holds. Therefore $Re\sqrt{C_l}\approx Re$.
+<br>We can therefore select some spanwise positions an note $Re\approx Re\sqrt{Cl}\approx const$.
+<br>Typically we choose the following positions:
+
+<center>
+
+| |Re @ 0-5% span|Re @ 50% span|Re @ 95% span|
+|---:|---:|---:|---:|
+|900g|103k|89k|33k|
+|1300g|124k|107k|39k|
+
+$Re\approx Re\sqrt{Cl}$ at relative span position for the two considered weights
+</center>
+<br>
+
+**Robustness or high performance?**
+
+In a nutshell, a profile can not be robust (with respect to how exact can we build, how smooth will the surface be, etc.) and deliver high performance (e.g. max $C_L$ low $C_D$) over a wide range of flight condition at the same time.
+
+If we e.g. go for minimal $C_D$ at a high speed condition, we will *pay* for it in other conditions etc.
+
+
+For the kissSlope, I decided for robustness (in multiple dimensions). I collected the following list of considerations, conclusion and (where available) link to a related discusion (might be in german, mainly for my own reference): 
+
+| |Consideration|Conclusion|Details|
+|---|:---|:---|:---|
+|1.|Profiles with long laminar flow get prob. quite bad if we mess it (e.g. geometrically or flight conditions e.g. lower Re at weak conditions)| Try to use a bubble ramp like profile (e.g. the [AG24, 25, 26](http://airfoiltools.com/airfoil/details?airfoil=ag24-il))|We will discuss and illustrate it below. See e.g. the discussion of the [MH30](https://www.aerodesign.de/profile/profile_n.htm#mh30).|
+|2.|$C_D$ at low $C_L$ (normal & speed flight) is dominated by parasitic drag from hull, elevator etc.|We will rather go for a reasonably low $C_D$ over a larger range of $C_L$ instead of optimizing for a super low $C_D$ in XFLR5|[Stingray thread](https://www.rc-network.de/threads/stingray-profilfrage.173616/), [Philip Kolb's post](https://www.rc-network.de/threads/stingray-profilfrage.173616/post-2926112)|
+|3. |We can not have a profile which is both, optimal for speed (non-bubble ramp) and weak conditions |Probably build 2 sets of wings, or, as I have planes for weak conditions build the heavier one||
+|4. |At high lift, the induced drag dominates. | For the kissSlope which is not intended for weak conditions, we will be flying at $C_l<0.6$, and  usual velocities of 15-20 m/s. For landing, higher $C_d$ at high $C_L$ is advantageous. |See my dicussion of the wing outline above, and [Hans Rupp's comments](https://www.rc-network.de/threads/stingray-profilfrage.173616/post-2930382)|
+|5. |Minimal sink rate should leave some saftey margin towards stall|Check to have $\alpha_{max}>\alpha_{minSink}+safetyMargin$ |[Hans Rupp's comments](https://www.rc-network.de/threads/stingray-profilfrage.173616/post-2930382)|
+|6. |For stability we need the wing root to stall first |The profiles towards (spanwise) wingtip, where we have lower Re should have ${\alpha}_{max}$ larger than at the root.||
+|7. |Neutral lift angle of attack should match along span | Check $\alpha_{C_l=0}$ across span|[MHSD discussion](https://www.rc-network.de/threads/neuer-mhsd-profilstrak-f%C3%BCr-mittelgro%C3%9Fe-hang-und-kunstflugsegler-pr%C3%A4sentation.477203/post-477203)|
+
+
+
+
