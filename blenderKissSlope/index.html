@@ -88,6 +88,12 @@
     </li>
         </ul>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#profiles-preselection">Profiles: preselection</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#basic-considerations">Basic considerations</a>
+    </li>
+        </ul>
+    </li>
     </ul>
                     </li>
                 </ul>
@@ -175,8 +181,8 @@
 The projected area is <span class="arithmatex">\(\frac{1}{2}\cdot 5128.7cm²=\textbf{0.2564m²}\)</span>
 <Br><span style="color:red"><strong>Note:</strong></span> this approach will not work when intersecting with a plane (don't ask me why). Therefore, I use a thin cube.</p>
 <h3 id="weight-minimal-velocity-an-re">Weight, minimal velocity an Re</h3>
-<p>I currently estimate the total weight to 900g and 1300g including some extra ballast (actually 800g, but we need to estimate with a bit of safety margin).</p>
-<p>Togehter with the surface area we can now determine <span class="arithmatex">\(v\)</span> from <a href="../aeroEqn/#mjx-eqn-eq:velocityFromMass">basics (2)</a>, if we make use of the <span style="color:red">hypothesis</span> <span class="arithmatex">\(c_{L}\approx 1.0\)</span>. We will cross-check this later!</p>
+<p>I currently estimate the total weight to 900g and 1300g including some extra ballast (actually 800g, but we need to estimate with a bit of safety margin). For the suface area determined above, this gives a wing loading of 35g/dm² and 51g/dm², respectively.</p>
+<p>We can now determine <span class="arithmatex">\(v\)</span> from <a href="../aeroEqn/#mjx-eqn-eq:velocityFromMass">basics (2)</a>, if we make use of the <span style="color:red">hypothesis</span> <span class="arithmatex">\(c_{L}\approx 1.0\)</span>. We will cross-check this later!</p>
 <p><span class="arithmatex">\(v_{min900g}=\sqrt{\frac{2\cdot 0.9kg\cdot 9.81 m/s²}{1.1673kg/m³\cdot 1.0 \cdot 0.2564m²}}=7.68 m/s\)</span></p>
 <p><span class="arithmatex">\(v_{min1300g}=\sqrt{\frac{2\cdot 1.3kg\cdot 9.81 m/s²}{1.1673kg/m³\cdot 1.0 \cdot 0.2564m²}}=9.23 m/s\)</span></p>
 <p>Inserting in <a href="../aeroEqn/#mjx-eqn-eq:reynolds">basics (3)</a> allows us to plot the Reynolds number over span: 
@@ -202,6 +208,101 @@ The projected area is <span class="arithmatex">\(\frac{1}{2}\cdot 5128.7cm²=\te
 <p>The considerations above are important for slow flight &amp; high lift situations (thermal climbing, landing, tack).
 <br>However, at normal flight in good conditions, the Re will be much larger. In these situations, it is important to have low <span class="arithmatex">\(c_D\)</span>. To get an impression, I plot Re(span) for slow, medium and high speed normal flight:
 <img alt="" src="../assets/images/Fig_ReSpan_fast.png" title="" /></p>
+<h2 id="profiles-preselection">Profiles: preselection</h2>
+<h3 id="basic-considerations">Basic considerations</h3>
+<p>There are a plethora of different profiles out there for different purposes. You can find detailed discussions and spend hours reading. <strong>I won't go into depth here</strong> (others have done this; for german readers see e.g. the great work of <a href="https://www.aerodesign.de/profile/profile_n.htm">Hartmut Siegmann</a>; if you know a comparable site in english, please let me know), <strong>but will only document some steps and considerations I have taken</strong>. If you identify mistakes, please let me know!</p>
+<p><strong>First step: collect design ResqrtCl's (actually <span class="arithmatex">\(Re\sqrt{C_l}\)</span>).</strong></p>
+<p>Why? See <a href="../aeroEqn/#mjx-eqn-eq:resqrtcl3">ResqrtCl derivation</a>. At a given wing section (fixed chordlength <span class="arithmatex">\(ch\)</span>), at horicontal flight, this is a constant number. In other words: if <em>we know the weight</em> of the plane and <em>require horicontal flight</em>, this <em>determines the flight conditions</em> (<span class="arithmatex">\(\alpha\)</span>, <span class="arithmatex">\(Cl\)</span>, <span class="arithmatex">\(Re\)</span>).
+<br>This allows us to study e.g. <span class="arithmatex">\(C_l/C_d\)</span> over the flight states (and e.g. plot it over the resulting <span class="arithmatex">\(\alpha\)</span>).  </p>
+<p>As discussed above, the <span style="color:red">hypothesis</span> of <span class="arithmatex">\(C_l\approx1.0\)</span> at <span class="arithmatex">\(v_{min}\)</span> holds. Therefore <span class="arithmatex">\(Re\sqrt{C_l}\approx Re\)</span>.
+<br>We can therefore select some spanwise positions an note <span class="arithmatex">\(Re\approx Re\sqrt{Cl}\approx const\)</span>.
+<br>Typically we choose the following positions:</p>
+<p><center></p>
+<table>
+<thead>
+<tr>
+<th align="right"></th>
+<th align="right">Re @ 0-5% span</th>
+<th align="right">Re @ 50% span</th>
+<th align="right">Re @ 95% span</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right">900g</td>
+<td align="right">103k</td>
+<td align="right">89k</td>
+<td align="right">33k</td>
+</tr>
+<tr>
+<td align="right">1300g</td>
+<td align="right">124k</td>
+<td align="right">107k</td>
+<td align="right">39k</td>
+</tr>
+</tbody>
+</table>
+<p><span class="arithmatex">\(Re\approx Re\sqrt{Cl}\)</span> at relative span position for the two considered weights
+</center>
+<br></p>
+<p><strong>Robustness or high performance?</strong></p>
+<p>In a nutshell, a profile can not be robust (with respect to how exact can we build, how smooth will the surface be, etc.) and deliver high performance (e.g. max <span class="arithmatex">\(C_L\)</span> low <span class="arithmatex">\(C_D\)</span>) over a wide range of flight condition at the same time.</p>
+<p>If we e.g. go for minimal <span class="arithmatex">\(C_D\)</span> at a high speed condition, we will <em>pay</em> for it in other conditions etc.</p>
+<p>For the kissSlope, I decided for robustness (in multiple dimensions). I collected the following list of considerations, conclusion and (where available) link to a related discusion (might be in german, mainly for my own reference): </p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th align="left">Consideration</th>
+<th align="left">Conclusion</th>
+<th align="left">Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.</td>
+<td align="left">Profiles with long laminar flow get prob. quite bad if we mess it (e.g. geometrically or flight conditions e.g. lower Re at weak conditions)</td>
+<td align="left">Try to use a bubble ramp like profile (e.g. the <a href="http://airfoiltools.com/airfoil/details?airfoil=ag24-il">AG24, 25, 26</a>)</td>
+<td align="left">We will discuss and illustrate it below. See e.g. the discussion of the <a href="https://www.aerodesign.de/profile/profile_n.htm#mh30">MH30</a>.</td>
+</tr>
+<tr>
+<td>2.</td>
+<td align="left"><span class="arithmatex">\(C_D\)</span> at low <span class="arithmatex">\(C_L\)</span> (normal &amp; speed flight) is dominated by parasitic drag from hull, elevator etc.</td>
+<td align="left">We will rather go for a reasonably low <span class="arithmatex">\(C_D\)</span> over a larger range of <span class="arithmatex">\(C_L\)</span> instead of optimizing for a super low <span class="arithmatex">\(C_D\)</span> in XFLR5</td>
+<td align="left"><a href="https://www.rc-network.de/threads/stingray-profilfrage.173616/">Stingray thread</a>, <a href="https://www.rc-network.de/threads/stingray-profilfrage.173616/post-2926112">Philip Kolb's post</a></td>
+</tr>
+<tr>
+<td>3.</td>
+<td align="left">We can not have a profile which is both, optimal for speed (non-bubble ramp) and weak conditions</td>
+<td align="left">Probably build 2 sets of wings, or, as I have planes for weak conditions build the heavier one</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td>4.</td>
+<td align="left">At high lift, the induced drag dominates.</td>
+<td align="left">For the kissSlope which is not intended for weak conditions, we will be flying at <span class="arithmatex">\(C_l&lt;0.6\)</span>, and  usual velocities of 15-20 m/s. For landing, higher <span class="arithmatex">\(C_d\)</span> at high <span class="arithmatex">\(C_L\)</span> is advantageous.</td>
+<td align="left">See my dicussion of the wing outline above, and <a href="https://www.rc-network.de/threads/stingray-profilfrage.173616/post-2930382">Hans Rupp's comments</a></td>
+</tr>
+<tr>
+<td>5.</td>
+<td align="left">Minimal sink rate should leave some saftey margin towards stall</td>
+<td align="left">Check to have <span class="arithmatex">\(\alpha_{max}&gt;\alpha_{minSink}+safetyMargin\)</span></td>
+<td align="left"><a href="https://www.rc-network.de/threads/stingray-profilfrage.173616/post-2930382">Hans Rupp's comments</a></td>
+</tr>
+<tr>
+<td>6.</td>
+<td align="left">For stability we need the wing root to stall first</td>
+<td align="left">The profiles towards (spanwise) wingtip, where we have lower Re should have <span class="arithmatex">\({\alpha}_{max}\)</span> larger than at the root.</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td>7.</td>
+<td align="left">Neutral lift angle of attack should match along span</td>
+<td align="left">Check <span class="arithmatex">\(\alpha_{C_l=0}\)</span> across span</td>
+<td align="left"><a href="https://www.rc-network.de/threads/neuer-mhsd-profilstrak-f%C3%BCr-mittelgro%C3%9Fe-hang-und-kunstflugsegler-pr%C3%A4sentation.477203/post-477203">MHSD discussion</a></td>
+</tr>
+</tbody>
+</table>
               
             </div>
           </div>

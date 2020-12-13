@@ -86,6 +86,14 @@
                 <ul class="current">
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">Basic equations</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#total-lift-force">Total lift force</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#stall-velocity">Stall velocity</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#reynolds-number">Reynolds number</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#resqrtcl">ResqrtCl</a>
+    </li>
     </ul>
                     </li>
                 </ul>
@@ -127,7 +135,7 @@
               
                 <h1 id="basic-aerodynamic-equations">Basic aerodynamic equations</h1>
 <p>I collect here some basic equatin wich we need e.g. for airfoil dimensioning.</p>
-<p>Total lift force</p>
+<h3 id="total-lift-force">Total lift force</h3>
 <div class="arithmatex">\[
 \begin{equation}
 F_{L}=\frac{1}{2}\rho v^2 c_{L} S=m_{plane} \cdot g  \label{eq:liftForce1}
@@ -140,13 +148,14 @@ F_{L}=\frac{1}{2}\rho v^2 c_{L} S=m_{plane} \cdot g  \label{eq:liftForce1}
 <br><span class="arithmatex">\(c_{L}\)</span>: total lift coefficient
 <br><span class="arithmatex">\(S\)</span>: projected surface (m²)</p>
 <p>We use large letters as indices, e.g. <span class="arithmatex">\(F_{L}\)</span> and <span class="arithmatex">\(c_{L}\)</span> to indicate total (integrated over the whole wing) values in contrast to <em>local</em> values (e.g. given for a wing section).</p>
+<h3 id="stall-velocity">Stall velocity</h3>
 <p>We regularly need to determine the lowest velocity, a plane can be flown without loosing height. Therefore, we resolve <span class="arithmatex">\(\eqref{eq:liftForce1}\)</span> for <span class="arithmatex">\(v\)</span>:</p>
 <div class="arithmatex">\[
 \begin{equation}
 v=\sqrt{\frac{2\cdot m_{plane}\cdot g}{\rho c_{L} S}}\label{eq:velocityFromMass}
 \end{equation}
 \]</div>
-<p>Reynolds number:</p>
+<h3 id="reynolds-number">Reynolds number</h3>
 <div class="arithmatex">\[
 \begin{equation}
 Re=\frac{\rho \cdot v \cdot ch}{\mu}=\frac{v\cdot ch}{\nu} \label{eq:reynolds}
@@ -155,6 +164,25 @@ Re=\frac{\rho \cdot v \cdot ch}{\mu}=\frac{v\cdot ch}{\nu} \label{eq:reynolds}
 <p>with
 <br><span class="arithmatex">\(\mu\)</span>: dynamic viscosity
 <br><span class="arithmatex">\(\nu\)</span>: kinematic viscosity of air (we typ. use 1.52 E-05 m²/s at 500m)</p>
+<h3 id="resqrtcl">ResqrtCl</h3>
+<p>Solving <span class="arithmatex">\(\eqref{eq:reynolds}\)</span> for <span class="arithmatex">\(v\)</span>, insertion in <span class="arithmatex">\(\eqref{eq:liftForce1}\)</span> and grouping the terms gives:</p>
+<div class="arithmatex">\[
+\begin{equation}
+\underbrace{F_{L}=m_{plane\cdot g}}_{const_1} =\underbrace{\frac{1}{2}\rho \frac{\nu^2\cdot S}{ch^2}}_{const!} \cdot  \underbrace{Re^2\cdot C_{L}}_{\Rightarrow const} \label{eq:resqrtcl1}
+\end{equation} 
+\]</div>
+<p>First, we note that, in horicontal flight, the lift force needs to be constant (<span class="arithmatex">\(const_1\)</span>). For higher velocities <span class="arithmatex">\(v\)</span> we require less <span class="arithmatex">\(C_l\)</span> and vice versa. All the values aggregated as <span class="arithmatex">\(const!\)</span> are definitely constant. From this follows that <span class="arithmatex">\(Re^2\cdot C_{L}\)</span> needs to be constant, too. Hence: </p>
+<div class="arithmatex">\[
+\begin{equation}
+Re\cdot\sqrt{C_{L}}=const \mid_{horicontal\ flight} \label{eq:resqrtcl2}
+\end{equation} 
+\]</div>
+<p>Note: at a given wing section we have local values (small indices)</p>
+<div class="arithmatex">\[
+\begin{equation}
+Re\cdot\sqrt{C_{l}}=const \mid_{@wing\ section,\ horicontal\ flight} \label{eq:resqrtcl3}
+\end{equation} 
+\]</div>
               
             </div>
           </div>
