@@ -13,9 +13,14 @@ Import the image: add > Image > as background and place & scale it.
 
 In the scripting workspace, *kissSlopeWing1.py* should be open. In there, I have the configuration for a more modster-like layout and one with less backwards sweep similar to the stingray.
 
-![](./assets/images/outlines1.png "my kitefoil set-up")
+![](./assets/images/outlines1.png "outlines")
 
 I personally prefer the upper one (for aesthetic reasons).
+
+<span style="color:green">**Update:**</span>
+<br>During aerodynamic analysis I opted for a higher aspect ration (1:9.4) and an over-elliptic chordlength towards the outer wing as follows:
+![](./assets/images/outlineNew.png "outline")
+In a nutshell: to have the wing root to stall first, we can use a wash-out or over-elliptic chordlength, with over-ellitic chordlenght is more beneficial at higher velocity (see detailed discussion below). 
 
 
 ## Wing loading and Re
@@ -25,7 +30,7 @@ For designing the 2d profiles along the wing span (strak, loft), we need to dete
 First, we get the (projected) surface in **blender**:
 <br>Edit>preference>add-ons>Mesh: 3d print toolbox - check to have the add-on activated
 
-We could now select the wing, hit **N** to pop up th info display (to the right). and select the 4th option (in the right-most menue - tilted by 90°) called *3D Print*, the hit *Area*.
+We could now select the wing, hit **N** to pop up the info display (to the right). and select the 4th option (in the right-most menue - tilted by 90°) called *3D Print*, the hit *Area*.
 <br>This gives us the surface area of the wing: 5191.8cm²
 
 ![](./assets/images/kiss1.png "")
@@ -47,6 +52,7 @@ But <span style="color:red">**wait!**</span> this is the total surface, not the 
 
 You should see a quite flat mesh (not curved like in the original wing). The 3d Print aera now gives us 5128.7cm².
 The projected area is $\frac{1}{2}\cdot 5128.7cm²=\textbf{0.2564m²}$
+<br><span style="color:green">**Update:**</span> The updated outline has a projected area of $\textbf{0.2342m²}$ 
 <Br><span style="color:red">**Note:**</span> this approach will not work when intersecting with a plane (don't ask me why). Therefore, I use a thin cube.
 
 
@@ -139,5 +145,28 @@ For the kissSlope, I decided for robustness (in multiple dimensions). I collecte
 |7. |Neutral lift angle of attack should match along span | Check $\alpha_{C_l=0}$ across span|[MHSD discussion](https://www.rc-network.de/threads/neuer-mhsd-profilstrak-f%C3%BCr-mittelgro%C3%9Fe-hang-und-kunstflugsegler-pr%C3%A4sentation.477203/post-477203)|
 
 
+<br>
+### XFLR5 Results - AGxx or else?
+**Discussion to 1.**
+<br>As far as I understood, bubble ramp profiles (Mark Drela's AGxx, SD7003, ...) generate an early laminar -> turbulent transition in the boundary layer. This is not as efficient as profiles which mainatain a longer laminar flow. However, once flow separation occurs, the form of separation my highly influence the resulting drag [(see Martin Hepperle's explanation)](https://www.mh-aerotools.de/airfoils/bubbles.htm).
+<br> See the great explanation by [learnfluidmechanics' video](https://www.youtube.com/watch?v=MvJmppOW2vQ), <span style="color:red">from which I took the following screenshot (2:30)</span>:
 
+[![](./assets/images/bl.png "")](./assets/images/bl.png)
 
+Therefore, the *long laminar* profiles might me more efficient at higher Re, at are at rsik to generate larger flow separation bubbles, which then completely messes-up the performance at lower Re.
+
+With this in mind let's see how the AGxx profiles perform in comparison to the other profiles usually referenced (for gliders at higher Re).
+For the following (type2) analysis I used the max $Re\sqrt{C_l}=124k$ from the table above (at the wing root for the heavier version), as I expect the effects getting even stronger for lower ResqrtCl.
+
+[![](./assets/images/comp1_1.png "")](./assets/images/comp1_1.png)
+
+Solving  [basics (1)](../aeroEqn/#mjx-eqn-eq:liftForce1) for $C_L$ and assume expected normal velocities of 15-25 m/s, we end-up with
+$C_{L,900g,15-20m/s}\approx 0.3 - 0.1$
+<br>$C_{L,1300g,15-20m/s}\approx 0.4 - 0.15$ 
+
+Zoomed in $C_L / C_D$ shows: 
+
+[![](./assets/images/comp1_2.png "")](./assets/images/comp1_2.png)
+
+Might be that at high velocities, the non bubble-ramp profiles are a bit more efficient.
+<br> However, I'd say for this glider we'd stick with AGxx.

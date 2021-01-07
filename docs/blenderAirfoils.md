@@ -135,8 +135,10 @@ Moulds can now be designed by subtracting the wing from cubes etc. Play a bit wi
 
 <br>
 ##Adding a new 2D profile
+<span style="color:green">**Update:**</span>
+The following works as described. Hwoever,in the meantime I added the possibility to directly import dat files ```wingLib.foilImport()```, resampling ```wingLib.foildDataReduceToNpoints()``` and re-sampling for morphing of profiles ```wingLib.interpolateBezier2on1()```. See e.g. kissSlopeWing2.py in the KissSlope project.
 
-The follwong sequence can be used to add a new 2D profile, e.g. from [the airfoil database](http://airfoiltools.com/search/airfoils?m=a). We will be doing this for the modified MH30.
+The follwing sequence can be used to add a new 2D profile, e.g. from [the airfoil database](http://airfoiltools.com/search/airfoils?m=a). We will be doing this for the modified MH30.
 
 **a) Prepare the py file**
 <br>Add a new airfoild data file in the scrpts directory, e.g. afData_mh30ModPK.py
@@ -200,3 +202,35 @@ def leadingEdgeIdx(quality):
 
 If it looks good, continue wit *medium* and *low* quality (I used 0.0004 and 0.0008, respectively).
 
+
+<br>
+##More complex wing design
+We'll be using the following files:
+
+|Folder|Name|Comment|
+|------|:------|------|
+|scripts|wingLib.py|basic worker routines to e.g. get from 2D points to 3D surfaces|
+|planes/kissSlope|kissSlopeWing.blend|the blender file|
+|planes/kissSlope|kissSlopeWing2.py|the python script used to generate a wing with configurable deviation from elliptic chord, multiple profiles and twist angle|
+
+<br>**kissSlope2.py**
+<br><br>The header and geometric definition is as usual (L 1-60).
+<br><br>We now have the possibility to import profile dat files e.g. applied in l. 66 providing the coordinate matrix and leading edge index.
+<br><br>```wingLib.foilDataReducetoNpoints()``` in l.81 allows to downsample the profile data (typically, for CAM model we don't ned as much points as e.g. for aerodynamic analysis). The downsampling reduces points such that the resulting qulaity of the curve is best conserved.
+<br><br>```wingLib.interpolateBezier2on1()``` in l.91 interpolates the second curve at the (angular) support points of the first profile. This is required for profile morphing (fading from one profile to another in spanwise direction), as this requires the same number of support points in similar angular distribution.
+In this example, we use the AG25 as root profile, then fade over to AG25 and AG14 in the outer region.
+<br><br>L.96ff illustrates how to plot the profiles for an inspecton (you should to this to ensure that downsampleing etc. worked out well).
+<br><br>L.111 compiles a dict for easy access of the prepared profile data
+
+[![](./assets/images/blenderScript9.png "")](./assets/images/blenderScript9.png)
+
+L.123 - 128 defines the base sections: AG25 from span 0-5%, AG26 at 40% span, AG14 from 95% span. tA is the local twist angle. In ths subsections between two basic sections, the twist angle is linear interpolated betwenn the inner and outer basic section settings.
+```"tMorph":True``` activates profile morphing for the subsections. Options (currenly) are *lS* and *lCh*. lS linearly morphes the profile according to the relative span position of the subsection between the basic sections (e.g. a subsection right between two base sections would be 50% left and 50% right profile).
+*lCh* morphes the profile linear according to the local chordlength compared to the chordlength of the enclosing basic profiles (which approx. relates to the local Reynoldsnumber).
+
+<br><br>L.137 - 141 allows to configure a spanwise deviation from the pure elliptic chord distribution as added chordlength defined at arbitrary many span positions (linear interpolated in between). In the example, the span positions match the base section definitions, this however is not necessary! 
+
+[![](./assets/images/blenderScript10.png "")](./assets/images/blenderScript10.png)
+
+The rest is as usual and result in the 3D mesh of the wing:
+[![](./assets/images/blenderScript11.png "")](./assets/images/blenderScript11.png)

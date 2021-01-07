@@ -20,8 +20,16 @@ Now you can install python modules
 ```
 ./pip3 install matplotlib
 ```
+For the foil analysis stuff, we need to be able to read / write xml files and tehrefore need
+
+```
+./pip3 install beautifulsoup4
+```
+
+
 
 ##BlenderCam##
+
 In order to be able to use [blendercam](https://github.com/vilemduha/blendercam) follow the [documentation](https://github.com/vilemduha/blendercam/wiki).
 I might later on add some notes here, but for now concentrate on the scripting part for wing design.
 
