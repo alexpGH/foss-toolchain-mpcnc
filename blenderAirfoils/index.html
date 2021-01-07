@@ -86,6 +86,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#adding-a-new-2d-profile">Adding a new 2D profile</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#more-complex-wing-design">More complex wing design</a>
+    </li>
     </ul>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../blenderKissSlope/">KissSlope project</a>
@@ -264,7 +266,9 @@ An important hint: the sufaces need to be closed, otherwize you will get weird e
 <p>Moulds can now be designed by subtracting the wing from cubes etc. Play a bit with the modeling interface, have a look at the api command output and start designing your own scripts.</p>
 <p><br></p>
 <h2 id="adding-a-new-2d-profile">Adding a new 2D profile</h2>
-<p>The follwong sequence can be used to add a new 2D profile, e.g. from <a href="http://airfoiltools.com/search/airfoils?m=a">the airfoil database</a>. We will be doing this for the modified MH30.</p>
+<p><span style="color:green"><strong>Update:</strong></span>
+The following works as described. Hwoever,in the meantime I added the possibility to directly import dat files <code>wingLib.foilImport()</code>, resampling <code>wingLib.foildDataReduceToNpoints()</code> and re-sampling for morphing of profiles <code>wingLib.interpolateBezier2on1()</code>. See e.g. kissSlopeWing2.py in the KissSlope project.</p>
+<p>The follwing sequence can be used to add a new 2D profile, e.g. from <a href="http://airfoiltools.com/search/airfoils?m=a">the airfoil database</a>. We will be doing this for the modified MH30.</p>
 <p><strong>a) Prepare the py file</strong>
 <br>Add a new airfoild data file in the scrpts directory, e.g. afData_mh30ModPK.py</p>
 <p><strong>b) Get data in selig format</strong>
@@ -314,6 +318,51 @@ Line 49 provides the <em>super</em> coordinates (unscaled and unshifted) and plu
 <br> The two boolean <em>True</em> parameters refer to: close the curve, and generate a sharp edge where the curve is closed (the trailing edge). 
 <br>Run the srcipt &amp; inspect the resulting curve <em>estcurveFin</em>.</p>
 <p>If it looks good, continue wit <em>medium</em> and <em>low</em> quality (I used 0.0004 and 0.0008, respectively).</p>
+<p><br></p>
+<h2 id="more-complex-wing-design">More complex wing design</h2>
+<p>We'll be using the following files:</p>
+<table>
+<thead>
+<tr>
+<th>Folder</th>
+<th align="left">Name</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>scripts</td>
+<td align="left">wingLib.py</td>
+<td>basic worker routines to e.g. get from 2D points to 3D surfaces</td>
+</tr>
+<tr>
+<td>planes/kissSlope</td>
+<td align="left">kissSlopeWing.blend</td>
+<td>the blender file</td>
+</tr>
+<tr>
+<td>planes/kissSlope</td>
+<td align="left">kissSlopeWing2.py</td>
+<td>the python script used to generate a wing with configurable deviation from elliptic chord, multiple profiles and twist angle</td>
+</tr>
+</tbody>
+</table>
+<p><br><strong>kissSlope2.py</strong>
+<br><br>The header and geometric definition is as usual (L 1-60).
+<br><br>We now have the possibility to import profile dat files e.g. applied in l. 66 providing the coordinate matrix and leading edge index.
+<br><br><code>wingLib.foilDataReducetoNpoints()</code> in l.81 allows to downsample the profile data (typically, for CAM model we don't ned as much points as e.g. for aerodynamic analysis). The downsampling reduces points such that the resulting qulaity of the curve is best conserved.
+<br><br><code>wingLib.interpolateBezier2on1()</code> in l.91 interpolates the second curve at the (angular) support points of the first profile. This is required for profile morphing (fading from one profile to another in spanwise direction), as this requires the same number of support points in similar angular distribution.
+In this example, we use the AG25 as root profile, then fade over to AG25 and AG14 in the outer region.
+<br><br>L.96ff illustrates how to plot the profiles for an inspecton (you should to this to ensure that downsampleing etc. worked out well).
+<br><br>L.111 compiles a dict for easy access of the prepared profile data</p>
+<p><a href="../assets/images/blenderScript9.png"><img alt="" src="../assets/images/blenderScript9.png" title="" /></a></p>
+<p>L.123 - 128 defines the base sections: AG25 from span 0-5%, AG26 at 40% span, AG14 from 95% span. tA is the local twist angle. In ths subsections between two basic sections, the twist angle is linear interpolated betwenn the inner and outer basic section settings.
+<code>"tMorph":True</code> activates profile morphing for the subsections. Options (currenly) are <em>lS</em> and <em>lCh</em>. lS linearly morphes the profile according to the relative span position of the subsection between the basic sections (e.g. a subsection right between two base sections would be 50% left and 50% right profile).
+<em>lCh</em> morphes the profile linear according to the local chordlength compared to the chordlength of the enclosing basic profiles (which approx. relates to the local Reynoldsnumber).</p>
+<p><br><br>L.137 - 141 allows to configure a spanwise deviation from the pure elliptic chord distribution as added chordlength defined at arbitrary many span positions (linear interpolated in between). In the example, the span positions match the base section definitions, this however is not necessary! </p>
+<p><a href="../assets/images/blenderScript10.png"><img alt="" src="../assets/images/blenderScript10.png" title="" /></a></p>
+<p>The rest is as usual and result in the 3D mesh of the wing:
+<a href="../assets/images/blenderScript11.png"><img alt="" src="../assets/images/blenderScript11.png" title="" /></a></p>
               
             </div>
           </div>
