@@ -16,6 +16,7 @@ pages:
   - KissSlope project: blenderKissSlope.md
 - XFLR5:
   - Getting started: xlfr5GettingStarted.md
+  - Blender export & 3D analyis: xlfr53dex.md
 - Basic aerodynamics:
   - Basic equations: aeroEqn.md
   

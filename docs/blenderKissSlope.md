@@ -29,6 +29,7 @@ For designing the 2d profiles along the wing span (strak, loft), we need to dete
 
 First, we get the (projected) surface in **blender**:
 <br>Edit>preference>add-ons>Mesh: 3d print toolbox - check to have the add-on activated
+<br><span style="color:green">**Update:**</span> A simpler alternative to the following is to first sketch the outline as desribed [here](../blenderAirfoils/#projectedarea).
 
 We could now select the wing, hit **N** to pop up the info display (to the right). and select the 4th option (in the right-most menue - tilted by 90°) called *3D Print*, the hit *Area*.
 <br>This gives us the surface area of the wing: 5191.8cm²
@@ -54,7 +55,6 @@ You should see a quite flat mesh (not curved like in the original wing). The 3d 
 The projected area is $\frac{1}{2}\cdot 5128.7cm²=\textbf{0.2564m²}$
 <br><span style="color:green">**Update:**</span> The updated outline has a projected area of $\textbf{0.2342m²}$ 
 <Br><span style="color:red">**Note:**</span> this approach will not work when intersecting with a plane (don't ask me why). Therefore, I use a thin cube.
-
 
 
 
