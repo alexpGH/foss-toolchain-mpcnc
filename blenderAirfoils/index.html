@@ -88,6 +88,8 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#more-complex-wing-design">More complex wing design</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#out-hinge-line-design-projected-area">Out &amp; hinge line design, projected area</a>
+    </li>
     </ul>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../blenderKissSlope/">KissSlope project</a>
@@ -96,6 +98,8 @@
                 <p class="caption"><span class="caption-text">XFLR5</span></p>
                 <ul>
                     <li class="toctree-l1"><a class="reference internal" href="../xlfr5GettingStarted/">Getting started</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../xlfr53dex/">Blender export & 3D analyis</a>
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">Basic aerodynamics</span></p>
@@ -267,7 +271,7 @@ An important hint: the sufaces need to be closed, otherwize you will get weird e
 <p><br></p>
 <h2 id="adding-a-new-2d-profile">Adding a new 2D profile</h2>
 <p><span style="color:green"><strong>Update:</strong></span>
-The following works as described. Hwoever,in the meantime I added the possibility to directly import dat files <code>wingLib.foilImport()</code>, resampling <code>wingLib.foildDataReduceToNpoints()</code> and re-sampling for morphing of profiles <code>wingLib.interpolateBezier2on1()</code>. See e.g. kissSlopeWing2.py in the KissSlope project.</p>
+The following works as described. Hwoever,in the meantime I added the possibility to directly import dat files <code>wingLib.foilImport()</code>, resampling <code>wingLib.foildDataReduceToNpoints()</code> and re-sampling for morphing of profiles <code>wingLib.interpolateBezier2on1()</code>. See e.g. kissSlopeWing2.py discussed <a href="#more-complex-wing-design">below</a>.</p>
 <p>The follwing sequence can be used to add a new 2D profile, e.g. from <a href="http://airfoiltools.com/search/airfoils?m=a">the airfoil database</a>. We will be doing this for the modified MH30.</p>
 <p><strong>a) Prepare the py file</strong>
 <br>Add a new airfoild data file in the scrpts directory, e.g. afData_mh30ModPK.py</p>
@@ -356,13 +360,56 @@ In this example, we use the AG25 as root profile, then fade over to AG25 and AG1
 <br><br>L.96ff illustrates how to plot the profiles for an inspecton (you should to this to ensure that downsampleing etc. worked out well).
 <br><br>L.111 compiles a dict for easy access of the prepared profile data</p>
 <p><a href="../assets/images/blenderScript9.png"><img alt="" src="../assets/images/blenderScript9.png" title="" /></a></p>
-<p>L.123 - 128 defines the base sections: AG25 from span 0-5%, AG26 at 40% span, AG14 from 95% span. tA is the local twist angle. In ths subsections between two basic sections, the twist angle is linear interpolated betwenn the inner and outer basic section settings.
+<p><a name="basesectiondef"></a>L.123 - 128 defines the base sections: AG25 from span 0-5%, AG26 at 40% span, AG14 from 95% span. tA is the local twist angle. In ths subsections between two basic sections, the twist angle is linear interpolated betwenn the inner and outer basic section settings.
 <code>"tMorph":True</code> activates profile morphing for the subsections. Options (currenly) are <em>lS</em> and <em>lCh</em>. lS linearly morphes the profile according to the relative span position of the subsection between the basic sections (e.g. a subsection right between two base sections would be 50% left and 50% right profile).
 <em>lCh</em> morphes the profile linear according to the local chordlength compared to the chordlength of the enclosing basic profiles (which approx. relates to the local Reynoldsnumber).</p>
-<p><br><br>L.137 - 141 allows to configure a spanwise deviation from the pure elliptic chord distribution as added chordlength defined at arbitrary many span positions (linear interpolated in between). In the example, the span positions match the base section definitions, this however is not necessary! </p>
+<p><br><a name="sectionwisechextension"></a> L.137 - 141 allows to configure a spanwise deviation from the pure elliptic chord distribution as added chordlength defined at arbitrary many span positions (linear interpolated in between). In the example, the span positions match the base section definitions, this however is not necessary! </p>
 <p><a href="../assets/images/blenderScript10.png"><img alt="" src="../assets/images/blenderScript10.png" title="" /></a></p>
 <p>The rest is as usual and result in the 3D mesh of the wing:
 <a href="../assets/images/blenderScript11.png"><img alt="" src="../assets/images/blenderScript11.png" title="" /></a></p>
+<p><br></p>
+<h2 id="out-hinge-line-design-projected-area">Out &amp; hinge line design, projected area</h2>
+<p>We'll be using the following files:</p>
+<table>
+<thead>
+<tr>
+<th>Folder</th>
+<th align="left">Name</th>
+<th>Comment</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>scripts</td>
+<td align="left">wingLib.py</td>
+<td>basic worker routines</td>
+</tr>
+<tr>
+<td>planes/kissSlope</td>
+<td align="left">kissSlopeWing.blend</td>
+<td>the blender file</td>
+</tr>
+<tr>
+<td>planes/kissSlope</td>
+<td align="left">hingeLine.py</td>
+<td>the python script used to generate a sketch of the out- &amp; hinge line</td>
+</tr>
+</tbody>
+</table>
+<p><br><strong>hingeLine.py</strong>
+This is a simple script generating a beezier curve for the wing outline and a line for the hinge line like the one illustrated below:
+<a href="../assets/images/outlineNew.png"><img alt="" src="../assets/images/outlineNew.png" title="" /></a></p>
+<p>After the obligatory header and basic geometry definition, l.80ff defines the hinge line, which should be self-explanatory.
+<a href="../assets/images/blenderScript13.png"><img alt="" src="../assets/images/blenderScript13.png" title="" /></a></p>
+<p>The following lines then define the section-wise ch extension as dicussed <a href="#sectionwisechextension">above</a> and plot the curves.</p>
+<p><a name="projectedarea"></a>The <strong>projected area</strong> can now easily be determined via:</p>
+<ul>
+<li>selecting the outline's curve in object mode &gt; object &gt; convert to mesh</li>
+<li>edit mode &gt; select all points (hit a) &gt; face &gt; fill</li>
+<li>object mode &gt; hit n to open the extended dialogue</li>
+<li>select the 4th elemnt in the vertical menue (item - tool - view - 3d print) Should the 3d print menue not show up, check to have preferences &gt; add ons &gt; 3d toolbox checked</li>
+<li>3d print &gt; hit the area button and find the area in the result field</li>
+</ul>
               
             </div>
           </div>
