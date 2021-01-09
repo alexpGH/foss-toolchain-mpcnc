@@ -227,7 +227,7 @@ Should display all the defined sections:</li>
 <li>on tab <em>inertia</em> set the palne mass (for the kissSlope 0.9 or 1.3kg) &gt; save</li>
 <li>in the plane analysis window set the angular region &gt; hit analyze</li>
 </ul>
-<p>The log output provides interesting information:
+<p><a name="logout"></a>The log output provides interesting information:
 In my case the analysis had errors, namely at higher <span class="arithmatex">\(alpha\)</span>. This is where separation occurs and XFLR5 can not find the related operating point in the 2D data:
 <a href="../assets/images/blenderScript20.png"><img alt="" src="../assets/images/blenderScript20.png" title="" /></a></p>
 <p>This tells us that starting from <span class="arithmatex">\(\alpha=10.5°\)</span>, separation occurs, luckily from the root region (small span pos values), with the separation growing for increasing <span class="arithmatex">\(alpha\)</span>.</p>
