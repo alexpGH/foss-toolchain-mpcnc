@@ -60,13 +60,13 @@ The projected area is $\frac{1}{2}\cdot 5128.7cm²=\textbf{0.2564m²}$
 
 ### Weight, minimal velocity an Re
 
-I currently estimate the total weight to 900g and 1300g including some extra ballast (actually 800g, but we need to estimate with a bit of safety margin). For the suface area determined above, this gives a wing loading of 35g/dm² and 51g/dm², respectively.
+I currently estimate the total weight to 900g and 1300g including some extra ballast (actually 800g, but we need to estimate with a bit of safety margin). For the suface area determined above, this gives a wing loading of 35g/dm² and 51g/dm² (<span style="color:green">**Update:**</span> 38g/dm² and 56g/dm²), respectively.
 
 We can now determine $v$ from [basics (2)](../aeroEqn/#mjx-eqn-eq:velocityFromMass), if we make use of the <span style="color:red">hypothesis</span> $c_{L}\approx 1.0$. We will cross-check this later!
 
-$v_{min900g}=\sqrt{\frac{2\cdot 0.9kg\cdot 9.81 m/s²}{1.1673kg/m³\cdot 1.0 \cdot 0.2564m²}}=7.68 m/s$
+$v_{min900g}=\sqrt{\frac{2\cdot 0.9kg\cdot 9.81 m/s²}{1.1673kg/m³\cdot 1.0 \cdot 0.2564m²}}=7.68 m/s$  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:green">**Update:**</span> $=8.0m/s$
 
-$v_{min1300g}=\sqrt{\frac{2\cdot 1.3kg\cdot 9.81 m/s²}{1.1673kg/m³\cdot 1.0 \cdot 0.2564m²}}=9.23 m/s$
+$v_{min1300g}=\sqrt{\frac{2\cdot 1.3kg\cdot 9.81 m/s²}{1.1673kg/m³\cdot 1.0 \cdot 0.2564m²}}=9.23 m/s$ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:green">**Update:**</span> $=9.7m/s$
 
 Inserting in [basics (3)](../aeroEqn/#mjx-eqn-eq:reynolds) allows us to plot the Reynolds number over span: 
 ![](./assets/images/Fig_ReSpan.png "")
@@ -99,7 +99,7 @@ The considerations above are important for slow flight & high lift situations (t
 ![](./assets/images/Fig_ReSpan_fast.png "")
 
 
-## Profiles: preselection
+## Wing: profiles preselection
 
 ### Basic considerations
 There are a plethora of different profiles out there for different purposes. You can find detailed discussions and spend hours reading. **I won't go into depth here** (others have done this; for german readers see e.g. the great work of [Hartmut Siegmann](https://www.aerodesign.de/profile/profile_n.htm); if you know a comparable site in english, please let me know), **but will only document some steps and considerations I have taken**. If you identify mistakes, please let me know!
@@ -116,10 +116,12 @@ As discussed above, the <span style="color:red">hypothesis</span> of $C_l\approx
 
 <center>
 
-| |Re @ 0-5% span|Re @ 50% span|Re @ 95% span|
-|---:|---:|---:|---:|
-|900g|103k|89k|33k|
-|1300g|124k|107k|39k|
+|| |Re @ 0-5% span|Re @ 50% span|Re @ 95% span|
+|---:|---:|---:|---:|---:|
+||900g|103k|89k|33k|
+||1300g|124k|107k|39k|
+|<span style="color:green">**Updated aspect ratio: **</span>|900g|90k|67k|32k|
+|<span style="color:green">**Updated aspect ratio: **</span>|1300g|110k|83k|38k|
 
 $Re\approx Re\sqrt{Cl}$ at relative span position for the two considered weights
 </center>
@@ -162,7 +164,7 @@ For the following (type2) analysis I used the max $Re\sqrt{C_l}=124k$ from the t
 
 Solving  [basics (1)](../aeroEqn/#mjx-eqn-eq:liftForce1) for $C_L$ and assume expected normal velocities of 15-25 m/s, we end-up with
 $C_{L,900g,15-20m/s}\approx 0.3 - 0.1$
-<br>$C_{L,1300g,15-20m/s}\approx 0.4 - 0.15$ 
+<br>$C_{L,1300g,15-20m/s}\approx 0.4 - 0.16$ 
 
 Zoomed in $C_L / C_D$ shows: 
 
@@ -170,3 +172,40 @@ Zoomed in $C_L / C_D$ shows:
 
 Might be that at high velocities, the non bubble-ramp profiles are a bit more efficient.
 <br> However, I'd say for this glider we'd stick with AGxx.
+<br><br>Note: for the <span style="color:green">**Updated aspect ratio wing**</span> the Re numbers do not change dramatically, and the tendencies stay the same.
+
+**Role of forced transition**
+<br>For curiosity, I made a compariosn at $Re=90k$ with and without forced transition (trip location 0.3):
+
+[![](./assets/images/comp5_1.png "")](./assets/images/comp5_1.png)
+
+
+**Profile for the wing-tip**
+<br>The comparison at $Re=35k$ (which is a good-enough approximation for both cases) indicates that using AG14 instead of AG27 might be beneficial (in the targeted operation area $C_L\approx0.2 -0.4$):
+
+[![](./assets/images/comp5_2.png "")](./assets/images/comp5_2.png)
+
+## Wing 3D analysis
+The difference between AG14 and AG27 at the wingtip is marginal with AG14 perfroming a bit better:
+[![](./assets/images/comp6_1.png "")](./assets/images/comp6_1.png)
+
+Shifting the transition from AG25 $\rightarrow$ AG26 from 50% to the root (40% and 35%) leads to a (marginal) enhancement. However, due to structral reasons, we do not want to have the thinner AG26 reaching to far towards the wing-root and choose 40% span as the position for AG26.
+
+[![](./assets/images/comp6_3.png "")](./assets/images/comp6_3.png)
+
+The logfile provides useful information about where flow separation occurs, see this [discussion](../xlfr53dex#logout) for details.
+
+[![](./assets/images/blenderScript20.png "")](./assets/images/blenderScript20.png)
+
+The following log snippet is for a wing with reduced extra chordlenght (the wing is less over-elliptic):
+
+[![](./assets/images/comp6_4.png "")](./assets/images/comp6_4.png)
+
+The wing is more efficient, however flow seperation starts at the wing tip, which is unvafourable.
+<br>
+To influence the region of flow separation, there are two basic means: using an over-elliptic chordlength or apply a negative $\alpha_{attack}$ towards the tip.
+<br>The following image shows the effect of applying additive ch (+6cm) vs. less (+5cm) plus washout $\alpha_{attack}=-1°$:
+
+[![](./assets/images/comp4_twistVsCh.png "")](./assets/images/comp4_twistVsCh.png)
+
+Washout has a positive influence in the high lift region (which is not our design region), whereas applying extra added ch is beneficial in the higher velocity (lower lft) region. Therefore I opted for +6cm without washout.
